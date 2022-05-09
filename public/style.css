@@ -1,0 +1,2247 @@
+/* ------------------------------------ */
+
+html.active,
+body.active {
+    overflow: hidden;
+}
+
+.black_fon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+    display: none;
+}
+
+.black_fon.active {
+    display: block;
+}
+
+
+/* ------------------------------------ */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    width: 100%;
+    z-index: 99;
+}
+
+header .top_head {
+    padding: 20px 0;
+}
+
+header .top_head .logo {
+    float: left;
+    color: #fff;
+    font-size: 20px;
+}
+
+header .top_head .logo span {
+    color: #ffd642;
+}
+
+header .top_head .profile {
+    float: left;
+    display: none;
+    padding: 10px 0;
+    width: 250px;
+    border-radius: 30px;
+    color: #000;
+    margin-left: 50px;
+    font-weight: 500;
+    text-align: center;
+    background: #45edff;
+    border: 1px solid #45edff;
+}
+
+header .list_navi {
+    list-style: none;
+    float: left;
+    margin-left: 20px;
+}
+
+header .list_navi li {
+    float: left;
+    margin-left: 4px;
+}
+
+header .list_navi li:nth-child(1) {
+    margin-left: 0;
+}
+
+header .list_navi li a {
+    color: #000;
+    font-size: 16px;
+    background: #45edff;
+    padding: 8px 5px;
+    border-radius: 5px;
+    margin-left: 0;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    border: 1px solid transparent;
+}
+
+header .list_navi li a.active {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+header .list_navi li a:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+
+/* ------------------------------------------------ */
+
+.top_scroll {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 10%;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #5428a4, #7b59d0);
+}
+
+.top_scroll:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: 50%;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    background: url(img/top_scroll.png) no-repeat center center;
+}
+
+
+/* ------------------------------------------------ */
+
+.home {
+    background: url(../img/logo_fon.png) no-repeat center center;
+    background-size: cover;
+    padding: 65px 0 25% 0;
+}
+
+.home .sliderHome {
+    width: 50%;
+    float: left;
+    padding-bottom: 60px;
+    margin-top: 90px;
+}
+
+
+/* ---------------------------------- */
+
+.sliderHome .slick-dots {
+    bottom: 10px;
+}
+
+
+/* ---------------------------------- */
+
+.home .sliderHome .item .title {
+    font-size: 60px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.home .sliderHome .item .text {
+    font-size: 30px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.home .sliderHome .item .btn {
+    padding: 15px 0;
+    width: 300px;
+    margin-top: 20px;
+    display: block;
+    border-radius: 30px;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+    background: #45edff;
+    border: 1px solid #45edff;
+}
+
+.home .sliderHome .item .btn:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+
+/* -------------------------------------------------- */
+
+.advantage {
+    background: #26455e;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.title_name {
+    padding-top: 250px;
+    text-align: center;
+}
+
+.title_name span {
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+}
+
+.title_name span:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 85px;
+    width: 2px;
+    height: 50px;
+    background: #fff;
+}
+
+.advantage .advantage_main {
+    text-align: center;
+    position: absolute;
+    top: -50px;
+}
+
+.advantage .advantage_main .item {
+    display: inline-block;
+    background: #45edff;
+    width: 380px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin-right: 45px;
+}
+
+.advantage .advantage_main .item:nth-child(3) {
+    margin-right: 0;
+}
+
+.advantage .advantage_main .item .logo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+.advantage .advantage_main .item .logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.advantage .advantage_main .item .text {
+    color: #000;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.advantage .all_advantage_main {
+    padding-top: 130px;
+}
+
+.advantage .all_advantage_main .item {
+    float: left;
+    margin: 30px 62px;
+    width: 40%;
+}
+
+.advantage .all_advantage_main .item .item_item {
+    float: right;
+}
+
+.advantage .all_advantage_main .item:nth-child(even) .item_item {
+    float: left;
+}
+
+.advantage .all_advantage_main .item .item_item .logo_logo {
+    float: right;
+    margin-left: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+.advantage .all_advantage_main .item .item_item .logo_logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.advantage .all_advantage_main .item:nth-child(even) .item_item .logo_logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.advantage .all_advantage_main .item .item_item .text_text {
+    float: right;
+    text-align: right;
+    width: 230px;
+}
+
+.advantage .all_advantage_main .item:nth-child(even) .item_item .text_text {
+    float: left;
+    text-align: left;
+    width: 230px;
+}
+
+.advantage .all_advantage_main .item .item_item .text_text .title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.advantage .all_advantage_main .item .item_item .text_text .sub_sub {
+    color: #aeb1be;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+/* -------------------------------------------------- */
+
+.used {
+    background: #fff;
+    padding-bottom: 100px;
+}
+
+.used .title_name {
+    padding-top: 100px;
+}
+
+.used .title_name span {
+    color: #212121;
+}
+
+.used .title_name span:before {
+    background: #212121;
+}
+
+.used .main {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.used .main .item {
+    display: inline-block;
+    width: 26%;
+    text-align: center;
+}
+
+.used .main .item .item_item {
+    border: 2px solid #999999;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.used .main .item .item_item:after {
+    content: "";
+    position: absolute;
+    right: -178px;
+    top: 50%;
+    margin-top: -1px;
+    width: 178px;
+    height: 2px;
+    background: #999999;
+}
+
+.used .main .item:last-child .item_item:after {
+    display: none;
+}
+
+.used .main .item .item_item .logo_logo {
+    padding-top: 33px;
+    width: 80px;
+    margin: 0 auto;
+}
+
+.used .main .item .item_item .logo_logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.used .main .item .item_item .num {
+    position: absolute;
+    top: -15px;
+    right: 50%;
+    margin-right: -15px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 100%;
+    background: #45edff;
+}
+
+.used .main .item p {
+    font-size: 18px;
+    color: #212121;
+}
+
+
+/* -------------------------------------------------- */
+
+.join {
+    background-image: linear-gradient(to right, #5428a4, #7b59d0);
+}
+
+.join .main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.join .main .text {
+    display: inline-block;
+    color: #fff;
+    font-size: 30px;
+    margin-right: 25px;
+}
+
+.join .main .btn {
+    display: inline-block;
+    padding: 15px 0;
+    margin-left: 25px;
+    width: 175px;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    background: #1d0d44;
+}
+
+
+/* -------------------------------------------------- */
+
+.bottom {
+    background: #26455e;
+    padding-bottom: 50px;
+}
+
+.bottom .main {
+    padding-top: 80px;
+}
+
+.bottom .main .title {
+    font-size: 20px;
+    color: #fff;
+}
+
+.bottom .main .text {
+    font-size: 15px;
+    color: #aeb1be;
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+
+/* -------------------------------------------------- */
+
+.home .our_clients {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-top: 50px;
+}
+
+.home .search_user {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.home .search_user .add_btn {
+    display: inline-block;
+    width: 180px;
+    padding: 10px 0;
+    background: #45edff;
+    text-align: center;
+    color: #000;
+    border-radius: 5px;
+    margin-right: 70px;
+    border: 1px solid transparent;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.home .search_user .add_btn:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+.home .search_user input {
+    width: 300px;
+    color: #fff;
+    outline: none;
+    border: 1px solid #fff;
+    background: transparent;
+    border-radius: 5px;
+    margin-left: 30px;
+    padding: 12px 5px 12px 5px;
+    display: inline-block;
+}
+
+.home .search_user input::placeholder {
+    color: #fff;
+}
+
+.home .search_user .search {
+    display: inline-block;
+    width: 180px;
+    border: 1px solid transparent;
+    padding: 10px 0;
+    background: #45edff;
+    text-align: center;
+    color: #000;
+    border-radius: 5px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.home .search_user .search:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+.home .main_all_user {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.home .main_all_user .active_user {
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.home .main_all_user .active_user:before {
+    content: "Активных пользователей";
+    margin-right: 10px;
+    color: #45edff;
+}
+
+.home .main_all_user .num_single {
+    float: left;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.home .main_all_user .num_single:before {
+    content: "Показывать колличество записей";
+    color: #fff;
+    font-size: 15px;
+}
+
+.home .main_all_user .num_single select {
+    background: transparent;
+    color: #fff;
+    padding: 5px 5px;
+    border: 1px solid #fff;
+}
+
+.home .main_all_user .num_single select option {
+    font-size: 15px;
+    color: #fff;
+    background: #000;
+}
+
+.home .main_all_user .notted_single {
+    float: left;
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.home .main_all_user .notted_single:before {
+    content: "Для отмеченных";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.home .main_all_user .notted_single select {
+    background: transparent;
+    color: #fff;
+    margin-left: 140px;
+    float: left;
+    width: 150px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+.home .main_all_user .notted_single select option {
+    font-size: 15px;
+    color: #fff;
+    background: #000;
+}
+
+.home .main_all_user .notted_single .install {
+    display: inline-block;
+    float: left;
+    width: 150px;
+    border: 1px solid transparent;
+    padding: 4px 0;
+    background: #45edff;
+    text-align: center;
+    margin-left: 10px;
+    color: #000;
+    border-radius: 5px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.home .main_all_user .notted_single .install:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+
+/* -------------------------------------------------- */
+
+.all_user .top_cap {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+.all_user .item_user {
+    float: left;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.all_user .item_user.ended {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.all_user .item_user.active {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+.all_user .item.check_item {
+    float: left;
+    width: 30px;
+    text-align: center;
+}
+
+.all_user .check_item .check_it {
+    width: 15px;
+    background: #fff;
+    height: 15px;
+    cursor: pointer;
+}
+
+.all_user .item {
+    float: left;
+    text-align: center;
+    padding: 5px 0;
+    width: 13.9%;
+    position: relative;
+}
+
+.all_user .top_cap .item .name_name {
+    color: #45edff;
+    font-size: 16px;
+}
+
+.all_user .item_user .item .name_info {
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    padding: 3px 3px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.all_user .item_user .item .list_btn {
+    color: #45edff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #45edff;
+    border-radius: 5px;
+    padding: 3px 10px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.all_user .item_user .item .list_btn:hover {
+    color: #fff;
+}
+
+.all_user .item_user .item .all_action {
+    position: absolute;
+    left: 51px;
+    top: 5px;
+    display: none;
+    padding: 10px 15px;
+    background: #000;
+    border: 1px solid #fff;
+    z-index: 99;
+    border-radius: 5px;
+}
+
+.all_user .item_user .item.active .all_action {
+    display: block;
+}
+
+.all_user .item_user .item .all_action a {
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.all_user .item_user .item .all_action a:hover {
+    color: #45edff;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_profile {
+    padding-bottom: 50px;
+    margin-top: 25px;
+}
+
+.form_profile {
+    position: fixed;
+    top: 70px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background: #45edff;
+    z-index: 99;
+}
+
+.form_profile.hide {
+    left: 100%;
+}
+
+.form_profile .name_profile {
+    color: #000;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 25px;
+    float: left;
+}
+
+.form_profile .name_profile:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: url(img/user.png) no-repeat center center;
+}
+
+.form_profile .balance_profile {
+    color: #000;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 25px;
+    float: left;
+    margin-left: 20px;
+}
+
+.form_profile .balance_profile span {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.form_profile .balance_profile:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: url(img/balance.png) no-repeat center center;
+}
+
+.profile_edit {
+    width: 480px;
+    border: 1px solid #45edff;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -240px;
+    top: 50%;
+    z-index: 999;
+    margin-top: -220px;
+}
+
+.profile_edit_tools {
+    width: 480px;
+    border: 1px solid #45edff;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 25px;
+}
+
+.profile_edit.active {
+    display: block;
+}
+
+.profile_edit .title,
+.profile_edit_tools .title {
+    color: #45edff;
+    font-size: 16px;
+}
+
+.profile_edit form,
+.profile_edit_tools form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.profile_edit label,
+.profile_edit_tools label {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile_edit label .name_profile_edit,
+.profile_edit_tools label .name_profile_edit {
+    color: #fff;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.profile_edit label input,
+.profile_edit_tools label input {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.profile_edit label textarea,
+.profile_edit_tools label textarea {
+    min-width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    resize: none;
+    padding: 5px 5px;
+    color: #fff;
+}
+
+.profile_edit label input::placeholder,
+.profile_edit_tools label input::placeholder {
+    color: #fff;
+    font-size: 12px;
+}
+
+.profile_edit label select,
+.profile_edit_tools label select {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 9px 5px;
+}
+
+.profile_edit label select option,
+.profile_edit_tools label select option {
+    font-size: 12px;
+    color: #fff;
+    background: #000;
+}
+
+.profile_edit .btn,
+.profile_edit_tools .btn {
+    display: inline-block;
+    width: 150px;
+    border: 1px solid transparent;
+    padding: 4px 0;
+    background: #45edff;
+    text-align: center;
+    margin-left: 10px;
+    color: #000;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.profile_edit .btn:hover,
+.profile_edit_tools .btn:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+.profile_edit .cansel,
+.profile_edit_tools .cansel {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.profile_edit .cansel:before,
+.profile_edit_tools .cansel:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: url(img/cansel.png) no-repeat center center;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_pay {
+    margin-top: 30px;
+}
+
+.main_pay .top_text {
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.main_pay .top_text .user_pay {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.main_pay .top_text .see_all {
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-block;
+    color: #45edff;
+}
+
+.main_pay .warning {
+    text-align: center;
+    padding: 5px 0;
+    background: #45edff;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    margin-top: 15px;
+    clear: both;
+}
+
+.main_pay .all_pay_table {
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+}
+
+.main_pay .top_pay_table {
+    float: left;
+    width: 100%;
+}
+
+.main_pay .all_pay_table .item {
+    float: left;
+    border-bottom: 1px solid #fff;
+    padding: 8px 0;
+}
+
+.main_pay .all_pay_table .item .name_name {
+    color: #45edff;
+    font-size: 16px;
+}
+
+.main_pay .all_pay_table .item .name_info {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    min-height: 20px;
+    text-align: center;
+}
+
+.main_pay .all_pay_table .item .check_it {
+    width: 15px;
+    background: #fff;
+    height: 15px;
+    float: left;
+    cursor: pointer;
+}
+
+.main_pay .all_pay_table .item.name_pay {
+    width: 50%;
+    text-align: center;
+}
+
+.main_pay .all_pay_table .item.price_pay {
+    width: 50%;
+    text-align: center;
+}
+
+.main_pay .all_pay_table .item.data_pay {
+    width: 20%;
+    text-align: center;
+}
+
+.main_pay .pay_sel {
+    margin: 15px 0;
+    float: left;
+    width: 100%;
+}
+
+.main_pay .pay_sel p {
+    color: #fff;
+    float: left;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.main_pay .pay_sel select {
+    background: transparent;
+    color: #fff;
+    margin: 0 5px;
+    float: left;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 15px;
+}
+
+.main_pay .pay_sel select option {
+    font-size: 15px;
+    color: #fff;
+    background: #000;
+}
+
+.main_pay .btn_pay {
+    display: block;
+    width: 230px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    padding: 10px 0;
+    background: #45edff;
+    text-align: center;
+    color: #000;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.main_pay .btn_pay:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_news {}
+
+.main_news .item {
+    margin-top: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.main_news .item .date {
+    font-size: 16px;
+    color: #45edff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.main_news .item.sale .date {
+    color: #f52c5bff;
+}
+
+.main_news .item .text {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_pay_balance {
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.main_pay_balance .tab_pay {
+    text-align: center;
+}
+
+.main_pay_balance .tab_pay .pay_pay,
+.main_pay_balance .tab_pay .transfer_pay,
+.main_pay_balance .tab_pay .history_pay {
+    font-size: 16px;
+    margin: 0 5px;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.main_pay_balance .tab_pay .pay_pay:hover,
+.main_pay_balance .tab_pay .transfer_pay:hover,
+.main_pay_balance .tab_pay .history_pay:hover {
+    color: #45edff;
+    border-bottom: 1px solid #45edff;
+}
+
+.main_pay_balance .tab_pay p.active {
+    color: #45edff;
+    border-bottom: 1px solid #45edff;
+}
+
+
+/* ------------------------- */
+
+.main_pay_balance .pay_pay_item {
+    margin-top: 20px;
+}
+
+.main_pay_balance .pay_pay_item.hide {
+    display: none;
+}
+
+.main_pay_balance .pay_pay_item .text {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.main_pay_balance .pay_pay_item .wallet {
+    width: 300px;
+    background: #45edff;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.main_pay_balance .pay_pay_item .wallet p {
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.main_pay_balance .pay_pay_item .wallet .info {
+    color: red;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.main_pay_balance .pay_pay_item .wallet ul {
+    list-style: none;
+    padding: 0 15px;
+}
+
+.main_pay_balance .pay_pay_item .wallet ul li {
+    display: block;
+}
+
+.main_pay_balance .pay_pay_item .wallet ul li span {
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.main_pay_balance .pay_pay_item .wallet ul li input {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: transparent;
+    padding: 5px 5px;
+    color: #000;
+    font-size: 12px;
+    outline: none;
+}
+
+.main_pay_balance .pay_pay_item .wallet ul li input::placeholder {
+    color: #000;
+}
+
+.main_pay_balance .pay_pay_item .all_tmsel {
+    margin-top: 10px;
+    padding: 0 40px;
+}
+
+.main_pay_balance .pay_pay_item .all_tmsel p {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid #000;
+    width: 100%;
+}
+
+.main_pay_balance .pay_pay_item .my_balance {
+    border-radius: 30px;
+    background: #fff;
+    color: #000;
+    padding: 10px 0;
+    font-weight: 500;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    position: relative;
+}
+
+.main_pay_balance .pay_pay_item .my_balance:before {
+    content: "Ваш баланс";
+}
+
+
+/* ------------------------- */
+
+.main_pay_balance .transfer_pay_item {
+    margin-top: 20px;
+    padding-bottom: 100px;
+}
+
+.main_pay_balance .history_pay_item {
+    padding-bottom: 300px;
+}
+
+.main_pay_balance .transfer_pay_item.hide {
+    display: none;
+}
+
+.main_pay_balance .transfer_pay_item form {
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #45edff;
+    padding: 15px 15px;
+}
+
+.main_pay_balance .transfer_pay_item form label {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main_pay_balance .transfer_pay_item form label .name_name {
+    color: #fff;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.main_pay_balance .transfer_pay_item form label input {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    outline: none;
+}
+
+.main_pay_balance .transfer_pay_item form .btn {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid transparent;
+    padding: 4px 0;
+    background: #45edff;
+    text-align: center;
+    color: #000;
+    border-radius: 5px;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.main_pay_balance .transfer_pay_item form .btn:hover {
+    background: #000;
+    color: #45edff;
+    border: 1px solid #000;
+}
+
+
+/* ------------------------- */
+
+.main_pay_balance .history_pay_item {
+    margin-top: 20px;
+}
+
+.main_pay_balance .history_pay_item.hide {
+    display: none;
+}
+
+.main_pay_balance .history_pay_item .top_it {
+    float: left;
+    width: 100%;
+}
+
+.main_pay_balance .history_pay_item .item {
+    float: left;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.main_pay_balance .history_pay_item .item .name_name {
+    font-size: 16px;
+    color: #45edff;
+    font-weight: 500;
+}
+
+.main_pay_balance .history_pay_item .item .name_info {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.main_pay_balance .history_pay_item .item.date {
+    width: 20%;
+}
+
+.main_pay_balance .history_pay_item .item.motion {
+    width: 15%;
+}
+
+.main_pay_balance .history_pay_item .item.price {
+    width: 15%;
+}
+
+.main_pay_balance .history_pay_item .item.operation {
+    width: 50%;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_regulation {
+    margin-top: 30px;
+}
+
+.main_regulation .item {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.main_regulation .item .name_name {
+    font-size: 24px;
+    color: #45edff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main_regulation .item .num {
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.main_regulation .item .logo_instruction {
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.main_regulation .item .logo_instruction img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_support {
+    text-align: center;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_port .main_pay .all_pay_table .item.price_pay {
+    width: 40%;
+}
+
+.main_port .main_pay .all_pay_table .item.data_pay {
+    width: 10%;
+}
+
+
+/* -------------------------------------------------- */
+
+.main_tools {
+    padding-top: 20px;
+    float: left;
+    width: 100%;
+}
+
+.main_tools .item_item {
+    float: left;
+    padding: 5px 0;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+}
+
+.main_tools .item_item .item {
+    float: left;
+}
+
+.main_tools .item_item .item .name_name {
+    font-size: 16px;
+    color: #45edff;
+}
+
+.main_tools .item_item .item .name_info {
+    font-size: 16px;
+    color: #fff;
+}
+
+.main_tools .item_item .item .name_info.server {
+    color: #45edff;
+}
+
+.main_tools .item_item .item.packet {
+    width: 30%;
+}
+
+.main_tools .item_item .item.port {
+    width: 10%;
+}
+
+.main_tools .item_item .item.ident {
+    width: 60%;
+}
+
+
+/* -------------------------------------------------- */
+
+.form_enter {
+    margin-top: 50px;
+    float: left;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.form_enter .tab_enter {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 8px 1px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 8px 1px rgb(0 0 0 / 10%);
+}
+
+.form_enter .enter_enter {
+    padding-bottom: 300px;
+}
+
+.form_enter .enter_enter.hide {
+    display: none;
+}
+
+.form_enter .tab_enter span.active {
+    color: #45edff;
+    border-bottom: 2px solid #45edff;
+}
+
+.form_enter .tab_enter span {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin-right: 40px;
+    padding-bottom: 11px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.form_enter form {
+    padding: 20px 20px;
+}
+
+.form_enter form input {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    padding: 8px 10px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form_enter form .btn {
+    width: 100%;
+    font-size: 18px;
+    background: #45edff;
+    clear: both;
+    color: #000;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 8px 0;
+    border: 1px solid transparent;
+    transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+}
+
+.form_enter form .btn:hover {
+    background: #000;
+    color: #45edff;
+}
+
+.form_enter .reg_reg.hide {
+    display: none;
+}
+
+
+/* -------------------------------------------------- */
+
+.workload_main {
+    width: 700px;
+    margin: 0 auto 200px;
+}
+
+.workload_main .item_workload {
+    width: 100%;
+    margin-top: 20px;
+    float: left;
+}
+
+.workload_main .item_workload .name_work {
+    font-size: 16px;
+    color: #fff;
+    float: left;
+}
+
+.workload_main .item_workload .name_work.left,
+.workload_main .item_workload .sum_work.right {
+    color: #45edff;
+}
+
+.workload_main .item_workload .sum_work {
+    font-size: 16px;
+    color: #fff;
+    float: right;
+}
+
+.workload_main .item_workload .line_all {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    float: left;
+    margin-top: 5px;
+    position: relative;
+}
+
+.workload_main .item_workload .line_workload {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    top: 0;
+    background: #45edff;
+}
+
+.workload_main .item_workload .line_workload.first {
+    width: 83%;
+}
+
+.workload_main .item_workload .line_workload.second {
+    width: 80%;
+}
+
+.workload_main .item_workload .line_workload.third {
+    width: 50%;
+}
+
+.workload_main .info_server_main {
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+}
+
+.workload_main .info_server_main .info_server {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.workload_main .info_server_main .info_server.all:before {
+    content: "Общее количество активных пользователей";
+    color: #45edff;
+    margin-right: 10px;
+}
+
+.workload_main .info_server_main .info_server.day:before {
+    content: "Активировано пакетов за сутки";
+    color: #45edff;
+    margin-right: 10px;
+}
+
+.workload_main .info_server_main .info_server.week:before {
+    content: "Активировано пакетов за неделю";
+    color: #45edff;
+    margin-right: 10px;
+}
+
+
+/* -------------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .container {
+        width: 1024px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    header .list_navi {
+        padding-top: 2px;
+    }
+    header .list_navi li {
+        margin-left: 5px;
+    }
+    header .list_navi li a {
+        font-size: 12px;
+    }
+    .advantage .advantage_main .item {
+        width: 305px;
+    }
+    .advantage .advantage_main .item .text {
+        font-size: 14px;
+    }
+    .advantage .all_advantage_main .item {
+        width: 37%;
+    }
+    .used .main .item {
+        width: 32%;
+    }
+    .all_user .item {
+        width: 13.8%;
+    }
+    .all_user .item_user .item .all_action {
+        left: 33px;
+    }
+    .main_port .main_pay .all_pay_table .item .name_info {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 991px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    header .list_navi li {
+        margin-left: 2px;
+    }
+    .advantage .advantage_main .item {
+        width: 294px;
+    }
+    .used .main .item {
+        width: 33%;
+    }
+    .all_user .item_user .item .all_action {
+        left: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .container {
+        width: 767px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    header .list_navi li a {
+        font-size: 16px;
+    }
+    header.scroll .top_head {
+        padding: 20px 0;
+    }
+    header .top_head .logo {
+        margin-left: 50px;
+        margin-top: 5px;
+    }
+    header .top_head .profile {
+        display: block;
+    }
+    header .list_navi {
+        padding-top: 80px;
+        margin-left: 0;
+    }
+    header .list_navi li {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    header .list_navi li a {
+        display: block;
+        padding: 10px 10px;
+        background: #011128;
+        color: #fff;
+        border-radius: 0;
+    }
+    header .list_navi li a.active {
+        border-bottom: none;
+        background: #032b63;
+        color: #fff;
+    }
+    header .list_navi li a:hover {
+        border-bottom: none;
+    }
+    .form_profile {
+        top: 18px;
+        left: 42%;
+    }
+    .home {
+        padding: 42px 0 25% 0;
+    }
+    .home .main_all_user .notted_single {
+        margin-bottom: 5px;
+    }
+    .home .sliderHome {
+        width: 100%;
+        float: left;
+        padding-bottom: 60px;
+        margin-top: 60px;
+    }
+    .home .search_user .add_btn {
+        margin-right: 50px;
+        width: 170px;
+    }
+    .home .search_user .search {
+        width: 170px;
+    }
+    .advantage .advantage_main .item {
+        padding: 10px 10px;
+    }
+    .advantage .advantage_main .item:nth-child(2) {
+        margin-right: 0;
+    }
+    .advantage .advantage_main .item:nth-child(3) {
+        margin-top: 15px;
+    }
+    .advantage .advantage_main .item .logo {
+        width: 50px;
+        height: 50px;
+    }
+    .advantage .advantage_main .item .text {
+        margin-top: 15px;
+    }
+    .title_name {
+        padding-top: 230px;
+    }
+    .title_name span:before {
+        display: none;
+    }
+    .advantage .all_advantage_main {
+        padding-top: 30px;
+    }
+    .advantage .all_advantage_main .item {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .form_profile.mob {
+        display: block;
+    }
+    .used {
+        padding-bottom: 20px;
+    }
+    .used .title_name {
+        padding-top: 30px;
+    }
+    .used .main {
+        margin-top: 50px;
+    }
+    .used .main .item .item_item:after {
+        display: none;
+    }
+    .used .main .item {
+        width: 49%;
+    }
+    .used .main .item:nth-child(3) {
+        margin-top: 40px;
+    }
+    .all_user .item {
+        width: 13.7%;
+    }
+    .all_user .item_user .item .all_action {
+        left: -13px;
+    }
+    .main_port .main_pay .all_pay_table .item .name_info {
+        font-size: 11px;
+    }
+    .main_regulation {
+        margin-top: 0;
+        padding-top: 50px;
+    }
+    .main_regulation .item .logo_instruction {
+        width: 100%;
+    }
+    .all_user .item_user .item .list_btn {
+        padding: 3px 5px;
+    }
+    .form_enter {
+        padding-bottom: 185px;
+    }
+    .main_tools {
+        padding-bottom: 250px;
+    }
+    .workload_main {
+        width: 400px;
+        margin: 0 auto 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 480px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    header {
+        background: #000;
+    }
+    header .top_head .logo {
+        margin-left: 10px;
+    }
+    header .row.active {
+        width: 65%;
+        z-index: 999 !important;
+    }
+    .profile_edit_tools {
+        width: 300px;
+    }
+    .profile_edit_tools form {
+        width: 100%;
+    }
+    .profile_edit {
+        width: 300px;
+        margin-left: -150px;
+    }
+    .profile_edit form {
+        width: 274px;
+    }
+    .form_profile {
+        left: 36%;
+    }
+    .home {
+        padding: 55px 0 40% 0;
+    }
+    .home .sliderHome {
+        margin-top: 90px;
+    }
+    .home .our_clients {
+        padding-top: 90px;
+        font-size: 25px;
+    }
+    .home .search_user {
+        margin-top: 15px;
+    }
+    .home .search_user .add_btn {
+        margin-right: 0;
+        width: 70%;
+    }
+    .home .search_user input {
+        margin-left: 0;
+        width: 70%;
+        margin-top: 20px;
+    }
+    .home .search_user .search {
+        margin-top: 5px;
+        width: 70%;
+    }
+    .home .sliderHome .item .text {
+        font-size: 25px;
+    }
+    .home .sliderHome .item .title {
+        font-size: 40px;
+    }
+    .header.scroll .form_profile {}
+    .advantage .advantage_main .item {
+        margin-right: 0;
+    }
+    .advantage .advantage_main {
+        top: -30px;
+    }
+    .advantage .advantage_main .item:nth-child(2) {
+        margin-top: 15px;
+    }
+    .title_name {
+        padding-top: 390px;
+    }
+    .used .main {
+        margin-top: 100px;
+    }
+    .used .main .item {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .used .main .item:nth-child(3) {
+        margin-top: 0;
+    }
+    .used .main .item .item_item .logo_logo {
+        width: 60px;
+        padding-top: 22px;
+    }
+    .title_name span:before {
+        margin-left: -9px;
+    }
+    .used .main .item .item_item {
+        width: 110px;
+        height: 110px;
+    }
+    .join .main .text {
+        margin-right: 0;
+    }
+    .join .main .btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .bottom .main {
+        padding-top: 30px;
+    }
+    .bottom {
+        padding-bottom: 50px;
+    }
+    .all_user .item {
+        width: 13.3%;
+    }
+    .all_user .top_cap .item .name_name {
+        font-size: 12px;
+    }
+    .all_user .item_user .item .name_info {
+        font-size: 11px;
+        padding: 3px 1px;
+    }
+    .all_user .item_user .item .list_btn {
+        font-size: 11px;
+        padding: 3px 2px;
+    }
+    .all_user .check_item .check_it {
+        width: 10px;
+        height: 10px;
+    }
+    .all_user .item_user .item .all_action {
+        padding: 10px 10px;
+        left: -24px;
+        top: 7px;
+    }
+    .all_user .item_user .item .all_action a {
+        font-size: 13px;
+    }
+    .main_pay .all_pay_table .item .name_name {
+        font-size: 12px;
+    }
+    .main_pay .all_pay_table .item .name_info {
+        font-size: 11px;
+    }
+    .main_pay .top_text,
+    .main_pay .top_text .user_pay {
+        font-size: 15px;
+    }
+    .main_pay .warning {
+        font-size: 14px;
+    }
+    .main_pay .pay_sel p {
+        font-size: 14px;
+        padding-top: 10px;
+    }
+    .main_pay .pay_sel select {
+        margin: 5px 5px;
+        width: 120px;
+        font-size: 13px;
+    }
+    .main_pay_balance .history_pay_item .item .name_name {
+        font-size: 12px;
+    }
+    .main_pay_balance .history_pay_item .item .name_info {
+        font-size: 12px;
+    }
+    .main_pay_balance .pay_pay_item .text {
+        font-size: 13px;
+    }
+    .main_pay_balance .transfer_pay_item {
+        padding-bottom: 250px;
+    }
+    .main_pay_balance .history_pay_item {
+        padding-bottom: 400px;
+    }
+    .main_port .main_pay .all_pay_table .item .name_info {
+        font-size: 8px;
+    }
+    .main_regulation {
+        padding-top: 95px;
+    }
+    .main_regulation .item .name_name {
+        font-size: 16px;
+    }
+    .main_tools .item_item .item .name_info {
+        font-size: 11px;
+    }
+    .main_profile {
+        padding-bottom: 200px;
+    }
+    .workload_main {
+        width: 100%;
+        margin: 0 auto 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    header .top_head .profile {
+        float: right;
+        width: 130px;
+        margin-left: 0;
+    }
+    header .top_head .logo {
+        margin-left: 30px;
+    }
+    .form_profile {
+        top: 13px;
+        left: 47%;
+        padding: 5px 5px;
+    }
+    .form_profile .name_profile {
+        float: none;
+        font-size: 14px;
+    }
+    .form_profile .name_profile:before {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background: url(img/user_mob.png) no-repeat center center;
+    }
+    .form_profile .balance_profile {
+        float: none;
+        margin-left: 0;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    .form_profile .balance_profile:before {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background: url(img/balance_mob.png) no-repeat center center;
+    }
+    .profile_edit {
+        width: 250px;
+        margin-left: -125px;
+    }
+    .profile_edit form {
+        width: 100%;
+    }
+    .home .sliderHome .item .title {
+        font-size: 30px;
+    }
+    .home .sliderHome .item .text {
+        font-size: 20px;
+    }
+    .home .search_user .add_btn,
+    .home .search_user input,
+    .home .search_user .search {
+        width: 100%;
+    }
+    .advantage .all_advantage_main {
+        padding-top: 65px;
+    }
+    .advantage .all_advantage_main .item .item_item .logo_logo {
+        width: 50px;
+        height: 50px;
+    }
+    .advantage .all_advantage_main .item .item_item .text_text {
+        width: 200px;
+    }
+    .advantage .all_advantage_main .item .item_item .text_text .title {
+        font-size: 15px;
+    }
+    .title_name span {
+        font-size: 20px;
+    }
+    .title_name span:before {
+        margin-left: 5px;
+        top: 30px;
+    }
+    .used .title_name span:before {
+        margin-left: -6px;
+        top: 62px;
+    }
+    .join .main .text {
+        font-size: 25px;
+    }
+    .all_user .top_cap .item .name_name {
+        font-size: 13px;
+    }
+    .all_user .item.check_item {
+        width: 20px;
+    }
+    .all_user .item_user .item .name_info {
+        font-size: 12px;
+    }
+    .all_user .item_user .item .list_btn {
+        font-size: 12px;
+    }
+    .home .main_all_user .notted_single .install {
+        width: 100px;
+        font-size: 13px;
+        padding: 4px 0;
+    }
+    .home .main_all_user .notted_single select {
+        padding: 3px 5px;
+        margin-left: 113px;
+        width: 100px;
+    }
+    .home .main_all_user .notted_single:before {
+        font-size: 13px;
+    }
+    .all_user .item_user .item .all_action {
+        left: -34px;
+    }
+    .all_user .top_cap .item .name_name,
+    .all_user .item_user .item .name_info {
+        font-size: 8px;
+    }
+    .all_user .item {
+        width: 13.3%;
+    }
+    .all_user .item_user .item .list_btn {
+        padding: 3px 3px;
+        font-size: 9px;
+    }
+    .main_pay .all_pay_table .item .check_it {
+        width: 10px;
+        height: 10px;
+    }
+    .main_pay .all_pay_table .item .name_name {
+        font-size: 9px;
+    }
+    .main_pay .all_pay_table .item .name_info {
+        font-size: 9px;
+    }
+    .main_pay .pay_sel select {
+        width: 80px;
+    }
+    .main_news .item .text {
+        font-size: 14px;
+    }
+    .main_pay_balance .history_pay_item .item .name_name {
+        font-size: 10px;
+    }
+    .main_pay_balance .history_pay_item .item .name_info {
+        font-size: 10px;
+    }
+    .main_pay_balance .tab_pay .pay_pay,
+    .main_pay_balance .tab_pay .transfer_pay,
+    .main_pay_balance .tab_pay .history_pay {
+        font-size: 11px;
+    }
+    .all_user .item_user .item .list_btn {
+        padding: 3px 0;
+    }
+    .form_enter .tab_enter {
+        width: 100%;
+    }
+    .workload_main .info_server_main .info_server {
+        font-size: 13px;
+    }
+}
