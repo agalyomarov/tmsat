@@ -54,12 +54,15 @@
             padding: 5px 10px;
             border-radius: 3px;
             border: 1px solid #45edff !important;
+            font-size: 16px !important;
         }
 
         .all_user .item_user .item .all_action p:hover,
         .all_user .item_user .item .all_action a:hover {
             color: #000 !important;
             background: #45edff !important;
+            font-size: 16px !important;
+
         }
 
     </style>
