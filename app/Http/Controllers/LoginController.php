@@ -30,7 +30,7 @@ class LoginController extends Controller
     {
         $data = $request->validated();
         try {
-            User::where('id', $request->user()->id)->update(['password' => $data['password']]);
+            User::where('id', $request->user()->id)->update(['parol' => $data['parol']]);
             return view('profile', ['message' => 'Парол успешно измненен']);
         } catch (\Exception $e) {
             return response()->view('errors.500', ['message' => $e->getMessage()], 500);
@@ -40,7 +40,7 @@ class LoginController extends Controller
     {
         $data = $request->validated();
         try {
-            $user = User::where(['login' => $data['login'], 'password' => $data['password']])->first();
+            $user = User::where(['login' => $data['login'], 'parol' => $data['parol']])->first();
             Auth::login($user);
             return redirect()->route('news');
         } catch (\Exception $e) {

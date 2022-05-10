@@ -27,7 +27,7 @@ class UserStoreRequest extends FormRequest
     {
         return [
             'login' => ['required', 'alpha', new LowerCase, 'unique:users,login', 'min:5', 'max:8'],
-            'password' => ['required', 'min:5', 'max:8']
+            'parol' => ['required', 'min:5', 'max:8']
         ];
     }
 }

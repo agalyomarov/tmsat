@@ -27,7 +27,7 @@ class UserLoginRequest extends FormRequest
     {
         return [
             'login' => ['required', 'alpha', new LowerCase, 'exists:users,login', 'min:5', 'max:8'],
-            'password' => ['required', 'min:5', 'max:8']
+            'parol' => ['required', 'min:5', 'max:8']
         ];
     }
 }

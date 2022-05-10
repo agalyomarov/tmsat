@@ -128,7 +128,7 @@
                             @foreach ($balance_histories as $history)
                                 <div class="item_history">
                                     <div class="item date">
-                                        <p class="name_info">{{ date('d.m.Y', strtotime($history->date)) }} , {{ date('H:i', strtotime($history->date)) }}</p>
+                                        <p class="name_info">{{ date('d.m.Y', strtotime($history->date)) }} </p>
                                     </div>
                                     <div class="item motion">
                                         <p class="name_info">{{ $history->action }}</p>

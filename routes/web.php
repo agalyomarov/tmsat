@@ -28,9 +28,15 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
    Route::get('/pay_balance', [PayBalanceController::class, 'index'])->name('pay_balance');
    Route::post('/pay_balance/send', [PayBalanceController::class, 'send'])->name('pay_balance.send');
-   Route::get('/diller', [DillerController::class, 'index'])->name('diller');
    Route::get('/paket', [PaketController::class, 'index'])->name('paket');
    Route::get('/select_server', [SelectServerController::class, 'index'])->name('select_server');
    Route::get('/tools', [ToolsController::class, 'index'])->name('tools');
    Route::get('/regulation', [RegulationController::class, 'index'])->name('regulation');
+   Route::controller(DillerController::class)->group(function () {
+      Route::get('/diller', 'index')->name('diller.index');
+      Route::post('/diller/create_client', 'createClient')->name('diller.create_client');
+      Route::put('/diller/update_client', 'updateClient')->name('diller.updateClient');
+      Route::delete('/diller/delete_client', 'deleteClient')->name('diller.updateClient');
+      Route::get('/diller/client/{client}', 'buyPaket')->name('diller.buyPaket');
+   });
 });

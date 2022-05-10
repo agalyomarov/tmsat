@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('css/framework.css') }}">
@@ -47,6 +48,7 @@
             background: #000 !important;
         }
 
+        .all_user .item_user .item .all_action p,
         .all_user .item_user .item .all_action a {
             margin-top: 5px;
             padding: 5px 10px;
@@ -54,6 +56,7 @@
             border: 1px solid #45edff !important;
         }
 
+        .all_user .item_user .item .all_action p:hover,
         .all_user .item_user .item .all_action a:hover {
             color: #000 !important;
             background: #45edff !important;
@@ -78,10 +81,10 @@
             <div class="main_all_user">
                 <div class="active_user">149</div>
                 <div class="num_single">
-                    <select>
-                        <option>10</option>
-                        <option>100</option>
-                        <option>1000</option>
+                    <select class="count_clients">
+                        <option value="10" {{ $count == 10 ? 'selected' : '' }}>10</option>
+                        <option value="100" {{ $count == 100 ? 'selected' : '' }}>100</option>
+                        <option value="1000" {{ $count == 1000 ? 'selected' : '' }}>1000</option>
                     </select>
                 </div>
                 <div class="all_user">
@@ -111,7 +114,7 @@
                             <p class="name_name">Действия</p>
                         </div>
                     </div>
-                    <div class="item_user ended">
+                    {{-- <div class="item_user ended">
                         <div class="item check_item">
                             <input type="checkbox" class="check_it" />
                         </div>
@@ -238,7 +241,43 @@
                                 <a href="#">Остановит</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    @if (isset($clients) && count($clients) > 0)
+                        @foreach ($clients as $client)
+                            <div class="item_user" data-client_id={{ $client->id }} data-login={{ $client->login }} data-parol={{ $client->parol }} data-server={{ $client->server }} data-description={{ $client->description }}>
+                                <div class="item check_item">
+                                    <input type="checkbox" class="check_it" />
+                                </div>
+                                <div class="item login_item">
+                                    <p class="name_info">{{ $client->login }}</p>
+                                </div>
+                                <div class="item pass_item">
+                                    <p class="name_info">{{ $client->parol }}</p>
+                                </div>
+                                <div class="item server_item">
+                                    <p class="name_info">{{ $client->server }}</p>
+                                </div>
+                                <div class="item notific_item">
+                                    <p class="name_info">{{ $client->description }}</p>
+                                </div>
+                                <div class="item day_item">
+                                    <p class="name_info">{{ $client->end_date }}</p>
+                                </div>
+                                <div class="item packet_item">
+                                    <p class="name_info">{{ $client->paket }}</p>
+                                </div>
+                                <div class="item btn_item">
+                                    <div class="list_btn">Действия</div>
+                                    <div class="all_action">
+                                        <p class="change_client_data">Изменить</p>
+                                        <p class="delete_client">Удалить</p>
+                                        <a href="{{ route('diller.buyPaket', $client->id) }}">Купить</a>
+                                        <p>Остановит</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="notted_single">
                     <select>
@@ -264,32 +303,40 @@
         </div>
     </section>
     <div class="profile_edit">
+
         <span class="cansel"></span>
         <p class="title">Введите данные</p>
-        <form>
+
+        <form action="#" method="post" class="form_add_client">
+            @csrf
             <label>
                 <span class="name_profile_edit">Логин</span>
-                <input type="text" placeholder="Введите логин" />
+                <input type="text" placeholder="Введите логин" name="login" />
             </label>
             <label>
-                <span class="name_profile_edit">Пароль</span>
-                <input type="password" placeholder="Введите пароль" />
+                <span class=" name_profile_edit">Пароль</span>
+                <input type="text" placeholder="Введите пароль" name="parol" />
             </label>
             <label>
-                <span class="name_profile_edit">Сервер</span>
-                <select>
-                    <option>Здесь будет ваш нужный сервер</option>
-                    <option>Здесь будет ваш нужный сервер</option>
-                    <option>Здесь будет ваш нужный сервер</option>
-                    <option>Здесь будет ваш нужный сервер</option>
-                    <option>Здесь будет ваш нужный сервер</option>
+                <span class=" name_profile_edit">Сервер</span>
+                <select name="server">
+                    <option value=""></option>
+                    <option value="1">Туркменистан s1.tmsat.live</option>
+                    <option value="2">Туркменистан s2.tmsat.live</option>
+                    <option value="3">Туркменистан s3.tmsat.live</option>
+                    <option value="4">Туркменистан s4.tmsat.live</option>
+                    <option value="5">Туркменистан s5.tmsat.live</option>
+                    <option value="6">Туркменистан s6.tmsat.live</option>
+                    <option value="7">Туркменистан s7.tmsat.live</option>
+                    <option value="8">Туркменистан s8.tmsat.live</option>
+                    <option value="9">Туркменистан s9.tmsat.live</option>
                 </select>
             </label>
             <label>
                 <span class="name_profile_edit">Заметки</span>
-                <textarea></textarea>
+                <input type="text" name="description">
             </label>
-            <a href="#" class="btn">Создать</a>
+            <input type="button" class="btn add_client" value="Создать" style="padding: 5px 5px;font-size:14px">
         </form>
     </div>
     <div class="black_fon"></div>
@@ -299,6 +346,136 @@
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <!----- УДАЛИТЬ СЛАЙДЕР ----->
+    <script>
+        document.querySelector('.search_user .add_btn').addEventListener('click', function(e) {
+            const profileEdit = document.querySelector('.profile_edit');
+            const formAddClient = profileEdit.querySelector('.form_add_client');
+            formAddClient.querySelector('input[name="login"]').value = '';
+            formAddClient.querySelector('input[name="parol"]').value = '';
+            formAddClient.querySelector('select[name="server"]').value = '';
+            formAddClient.querySelector('input[name="description"]').value = '';
+            profileEdit.querySelectorAll('.validate_message').forEach(function(element) {
+                element.remove();
+            });
+            formAddClient.querySelector('input.add_client').remove();
+            formAddClient.insertAdjacentHTML('beforeend', '<input type="button" class="btn add_client" value="Создать" style="padding: 5px 5px;font-size:14px">');
+            const btnAddClient = formAddClient.querySelector('input.add_client');
+            const mainUsers = document.querySelector('.main_all_user');
+            btnAddClient.addEventListener('click', function(e) {
+                const formAddClient = btnAddClient.closest('form.form_add_client');
+                const profileEdit = document.querySelector('.profile_edit');
+                profileEdit.querySelectorAll('.validate_message').forEach(function(element) {
+                    element.remove();
+                })
+                const body = {};
+                body.login = formAddClient.querySelector('input[name="login"]').value;
+                body.parol = formAddClient.querySelector('input[name="parol"]').value;
+                body.server = formAddClient.querySelector('select[name="server"]').value;
+                body.description = formAddClient.querySelector('input[name="description"]').value;
+                fetch('/diller/create_client', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    body: JSON.stringify(body)
+                }).then(res => {
+                    return res.json();
+                }).then(data => {
+                    if (data.status == 'validate_error') {
+                        for (let key in data.messages) {
+                            profileEdit.insertAdjacentHTML('afterbegin', `<p class="validate_message" style="color:white;padding:0 20px;margin-bottom:5px;">${data.messages[key]}</p>`)
+                        }
+                    } else if (data.status == true) {
+                        window.location.reload();
+                    } else if (data.status == false) {
+                        profileEdit.insertAdjacentHTML('afterbegin', `<p class="validate_message" style="color:white;padding:0 20px;margin-bottom:5px;">${data.message}</p>`)
+                    }
+                })
+            })
+        })
+        document.querySelector('.count_clients').addEventListener('change', function(e) {
+            window.location = `/diller?count=${e.target.value}`;
+        });
+        const mainUsers = document.querySelector('.main_all_user');
+        mainUsers.addEventListener('click', function(e) {
+            if (e.target.classList.contains('change_client_data')) {
+                const profileEdit = document.querySelector('.profile_edit');
+                const black_fon = document.querySelector('.black_fon');
+                const formAddClient = profileEdit.querySelector('.form_add_client');
+                const itemUser = e.target.closest('.item_user');
+                formAddClient.querySelector('input[name="login"]').value = itemUser.dataset.login;
+                formAddClient.querySelector('input[name="parol"]').value = itemUser.dataset.parol;
+                formAddClient.querySelector('select[name="server"]').value = itemUser.dataset.server;
+                formAddClient.querySelector('input[name="description"]').value = itemUser.dataset.description;
+                profileEdit.classList.add('active');
+                black_fon.classList.add('active');
+                profileEdit.querySelectorAll('.validate_message').forEach(function(element) {
+                    element.remove();
+                });
+                formAddClient.querySelector('input.add_client').remove();
+                formAddClient.insertAdjacentHTML('beforeend', '<input type="button" class="btn add_client" value="Изменит" style="padding: 5px 5px;font-size:14px">');
+                const btnAddClient = formAddClient.querySelector('input.add_client');
+                btnAddClient.addEventListener('click', function(event) {
+                    profileEdit.querySelectorAll('.validate_message').forEach(function(element) {
+                        element.remove();
+                    })
+                    const body = {};
+                    body.client_id = itemUser.dataset.client_id;
+                    body.login = formAddClient.querySelector('input[name="login"]').value;
+                    body.parol = formAddClient.querySelector('input[name="parol"]').value;
+                    body.server = formAddClient.querySelector('select[name="server"]').value;
+                    body.description = formAddClient.querySelector('input[name="description"]').value;
+                    fetch('/diller/update_client', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        body: JSON.stringify(body)
+                    }).then(res => {
+                        return res.json();
+                    }).then(data => {
+                        if (data.status == 'validate_error') {
+                            for (let key in data.messages) {
+                                profileEdit.insertAdjacentHTML('afterbegin', `<p class="validate_message" style="color:white;padding:0 20px;margin-bottom:5px;">${data.messages[key]}</p>`)
+                            }
+                        } else if (data.status == true) {
+                            window.location.reload();
+                            // console.log(data);
+                        } else if (data.status == false) {
+                            profileEdit.insertAdjacentHTML('afterbegin', `<p class="validate_message" style="color:white;padding:0 20px;margin-bottom:5px;">${data.message}</p>`)
+                        }
+                    })
+                    // console.log(body);
+                })
+            } else if (e.target.classList.contains('delete_client')) {
+                const check = confirm('Вы точно хотите удалить клиента?');
+                if (check) {
+                    const itemUser = e.target.closest('.item_user');
+                    const body = {};
+                    body.client_id = itemUser.dataset.client_id;
+                    fetch('/diller/delete_client', {
+                        method: 'delete',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        body: JSON.stringify(body)
+                    }).then(res => {
+                        return res.json();
+                    }).then(data => {
+                        if (data.status == true) {
+                            window.location.reload();
+                            // console.log(data);
+                        } else if (data.status == false) {
+                            alert(data.message);
+                        }
+                    })
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>

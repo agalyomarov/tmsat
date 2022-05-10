@@ -27,7 +27,7 @@
                                 <a href=" {{ route('pay_balance') }}" class="link @if (Route::is('pay_balance')) active @endif">Пополнить баланс</a>
                             </li>
                             <li>
-                                <a href="{{ route('diller') }}" class="link @if (Route::is('diller')) active @endif">Диллерам</a>
+                                <a href="{{ route('diller.index') }}" class="link @if (Route::is('diller.index')) active @endif">Диллерам</a>
                             </li>
                             <li>
                                 <a href="{{ asset('paket') }}" class="link @if (Route::is('paket')) active @endif">Наши пакеты</a>

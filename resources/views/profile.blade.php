@@ -58,7 +58,7 @@
                         @csrf
                         <label>
                             <span class="name_profile_edit">Пароль</span>
-                            <input type="text" placeholder="Измените пароль" name="password" />
+                            <input type="text" placeholder="Измените пароль" name="parol" />
                         </label>
                         <input type="submit" class="btn" value="Изменить">
                     </form>

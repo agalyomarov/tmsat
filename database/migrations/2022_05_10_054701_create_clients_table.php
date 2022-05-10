@@ -13,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('diller_id');
             $table->string('login');
             $table->string('parol');
-            $table->decimal('balance')->default(0.00);
-            $table->unique('login', 'login_uniquex');
+            $table->unsignedInteger('server');
+            $table->string('description')->nullable();
+            $table->timestamp('end_date')->nullable();
+            $table->string('paket')->nullable();
+
+            $table->unique('login', 'login_uniqex');
         });
     }
 
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('clients');
     }
 };

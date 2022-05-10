@@ -47,13 +47,13 @@
                     <form class="enter_enter" action="{{ route('login.login') }}" method="post">
                         @csrf
                         <input type="text" placeholder="Логин" name="login" />
-                        <input type="text" placeholder="Пароль" name="password" />
+                        <input type="text" placeholder="Пароль" name="parol" />
                         <input type="submit" class="btn" value="Войти">
                     </form>
                     <form class="reg_reg" action="{{ route('login.register') }}" method="post">
                         @csrf
                         <input type="text" placeholder="Логин*" name="login" value="{{ old('login') }}">
-                        <input type=" text" placeholder="Пароль*" name="password" value="{{ old('password') }}">
+                        <input type=" text" placeholder="Пароль*" name="parol" value="{{ old('password') }}">
                         <input type="submit" class="btn" value="Зарегестрироваться">
                     </form>
                 </div>
