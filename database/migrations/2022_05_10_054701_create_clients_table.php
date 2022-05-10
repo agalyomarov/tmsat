@@ -21,8 +21,6 @@ return new class extends Migration
             $table->unsignedInteger('server');
             $table->string('description')->nullable();
             $table->timestamp('end_date')->nullable();
-            $table->string('paket')->nullable();
-
             $table->unique('login', 'login_uniqex');
         });
     }

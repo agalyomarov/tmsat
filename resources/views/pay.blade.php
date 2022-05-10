@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="format-detection" content="telephone=no" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
@@ -15,25 +16,14 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/js.js?4') }}"></script>
     <style>
-        .main_pay .pay_sel input {
+        select {
             background: transparent;
             color: #fff;
-            margin: 0 5px;
-            float: left;
             border: 1px solid #fff;
             border-radius: 5px;
             padding: 5px 5px;
             font-size: 15px;
             min-width: 130px;
-        }
-
-        ::-webkit-calendar-picker-indicator {
-            background-color: #fff;
-            overflow: hidden;
-            border-radius: 4px;
-            border: none !important;
-            padding: 4px;
-            box-shadow: border-box !important;
         }
 
     </style>
@@ -44,41 +34,24 @@
     <section class="home">
         <div class="container clearfix">
             @include('includes.form_profile_mob')
-            <h1 class="our_clients">Купить пакеты</h1>
-            <div class="main_pay">
-                <div class="top_text">Выберите пакеты для пользователя:
-                    <p class="user_pay">{{ $client->login }}</p>
-                    <a href="#" class="see_all">Посмотреть все купленные пакеты</a>
+            {{-- <h1 class="our_clients">VIP ПАКЕТ</h1> --}}
+            <div class="main_pay" style="padding-top:40px">
+                <div class="warning" style="width:240px !important;margin:0 auto !important;">
+                    {{-- <h1 class="our_clients"></h1> --}}
+                    <h1 style="margin-bottom:10px">VIP ПАКЕТ</h1>
+                    <p style="margin-bottom:5px">Цена 0.10$ за 1 месяц</p>
+                    <p style="margin-bottom:5px">пакет vip</p>
+                    <p style="margin-bottom:5px">В него входить</p>
+                    <p style="margin-bottom:5px">Телекарта 85°</p>
+                    <p style="margin-bottom:5px">НТВ+ Восток 56°</p>
+                    <p style="margin-bottom:5px">D-smart 42°</p>
+                    <p style="margin-bottom:5px">Setante 31°</p>
+                    <p style="margin-bottom:5px">XXX chanel 13°</p>
+                    <p style="margin-bottom:5px">Polsat chanel 13°</p>
+                    <p style="margin-bottom:5px">NC+ chanel 13°</p>
                 </div>
-                <div class="warning">Активация купленных пакетов в течении 10 мин!</div>
-                <div class="all_pay_table">
-                    <div class="top_pay_table">
-                        <div class="item name_pay">
-                            <p class="name_name">Название пакета</p>
-                        </div>
-                        <div class="item price_pay" style="text-align: center;">
-                            <p class="name_name" style="float: left">Цена в месяц (30 день)</p>
-                            <p class="name_name" style="float: right;margin-right:20%">Информация</p>
-                        </div>
-                    </div>
-                    <div class="content_pay_table">
-                        <div class="item name_pay">
-                            <input type="checkbox" class="check_it inputVipPaket" data-price="1">
-                            <p class="name_info">VIP</p>
-                        </div>
-                        <div class="item price_pay" style="text-align: center;margin-bottom:20px">
-                            <p class="name_info" style="float: left">$1.00</p>
-                            <a href="#" class=" name_info " style="float:right;margin-right:23%;text-decoration:underline">Подробна</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pay_sel ">
-                    <p>Купить выбранные с</p>
-                    <input type="date" class="date_start_paket">
-                    <p>по</p>
-                    <input type="date" class="date_end_paket">
-                    <p>или купить на:</p>
-                    <select>
+                <div class="select" style="width:150px;text-align:center;margin:0 auto;margin-top:20px">
+                    <select class="date_for_paket">
                         <option value="1">1 месяц</option>
                         <option value="2">2 месяця</option>
                         <option value="3">3 месяця</option>
@@ -88,45 +61,48 @@
                         <option value="12">1 год</option>
                     </select>
                 </div>
-                <div class="warning message_for_diller">У вас пока нет выбранных пакетов...</div>
-                {{-- <a href="# " class="btn_pay ">Купить выбранный пакет</a> --}}
-                <input type="button" class="btn_pay " value="Купить выбранный пакет" style="font-size:15px;font-weight:bold">
+                <div style="width:100%;text-align:center;margin:0 auto;margin-top:20px">
+                    <p style="margin-bottom:5px;color:white">Для пользователя {{ $client->login }}</p>
+                </div>
+                <div class="messages" style="width:100%;text-align:center;margin:0 auto;margin-top:20px">
+                    {{-- <p style="margin-bottom:5px;color:white">На вашем счету не достаточна средства</p> --}}
+                </div>
+                <div style="width:240px;text-align:center;margin:0 auto;margin-top:20px !important">
+                    <input type="button" class="btn_pay btn_for_buy_paket" value="Купить" style="font-size:15px;font-weight:bold;margin:0 auto !important;" data-client_id="{{ $client->id }}">
+                </div>
             </div>
         </div>
-    </section>
-    <footer>
-        <div class="container clearfix ">
         </div>
-    </footer>
+    </section>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js " type="text/javascript "></script>
-    <!----- УДАЛИТЬ СЛАЙДЕР ----->
     <script>
-        const messageForDiller = document.querySelector('.message_for_diller');
-        const inputVipPaket = document.querySelector('.inputVipPaket');
-        const dillerBalance = document.querySelector('.form_profile').dataset.diller_balance;
-        const packetPrice = inputVipPaket.dataset.price;
-        inputVipPaket.addEventListener('change', function(e) {
-            const dateStartPaket = document.querySelector('.date_start_paket');
-            const dateEndPaket = document.querySelector('.date_end_paket');
-            if (e.target.checked) {
-                if (!dateStartPaket.value || !dateEndPaket.value || dateStartPaket.value >= dateEndPaket.value) {
-                    messageForDiller.innerHTML = 'Выберите правилную дату ';
-                } else {
-                    const startDate = parseInt(parseInt(Date.parse(dateStartPaket.value)) / 1000);
-                    const endDate = parseInt(parseInt(Date.parse(dateEndPaket.value)) / 1000);
-                    const pricePaketForOneDay = (parseInt(e.target.dataset.price) / 30).toFixed(2);
-                    const differentDay = endDate - startDate;
-                    const generalPrice = (parseInt(differentDay / 86400) * pricePaketForOneDay).toFixed(2);
-                    console.log(differentDay);
-                    console.log(pricePaketForOneDay);
-                    console.log(generalPrice);
-                    messageForDiller.innerHTML = `Общая стоимость: ${generalPrice} $ Ваш баланс:  ${dillerBalance} $ | <a href='/pay_balance '>Пополнить</a> `;
+        document.querySelector('.btn_for_buy_paket').addEventListener('click', function(e) {
+            const messages = document.querySelector('.messages');
+            messages.querySelectorAll('p').forEach(function(message) {
+                message.remove();
+            });
+            const body = {};
+            body.dateForPaket = document.querySelector('.date_for_paket').value;
+            body.client_id = e.target.dataset.client_id;
+            fetch('/diller/client', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                body: JSON.stringify(body)
+            }).then(res => {
+                return res.json();
+            }).then(data => {
+                if (data.status == false) {
+                    messages.innerHTML = `<p style="margin-bottom:5px;color:white">${data.message}</p>`;
+                } else if (data.status == true) {
+                    console.log(data);
                 }
-            } else {
-                messageForDiller.innerHTML = 'У вас пока нет выбранных пакетов...';
-            }
+            });
         })
     </script>
+
 </body>
 
 </html>

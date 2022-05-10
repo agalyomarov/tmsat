@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\LatinLetters;
 use App\Rules\LowerCase;
 use App\Rules\Uppercase;
 use Illuminate\Foundation\Http\FormRequest;
@@ -26,7 +27,7 @@ class UserLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'login' => ['required', 'alpha', new LowerCase, 'exists:users,login', 'min:5', 'max:8'],
+            'login' => ['required', 'alpha', new LowerCase, new LatinLetters, 'exists:users,login', 'min:5', 'max:8'],
             'parol' => ['required', 'min:5', 'max:8']
         ];
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\DillerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
@@ -14,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainController::class, 'index'])->name('main');
+
 
 Route::controller(LoginController::class)->group(function () {
    Route::get('/login', 'index')->name('login.index');
@@ -38,5 +41,15 @@ Route::group(['middleware' => ['auth']], function () {
       Route::put('/diller/update_client', 'updateClient')->name('diller.updateClient');
       Route::delete('/diller/delete_client', 'deleteClient')->name('diller.updateClient');
       Route::get('/diller/client/{client}', 'buyPaket')->name('diller.buyPaket');
+      Route::post('/diller/client', 'buyPaketStore')->name('diller.buyPaketStore');
    });
+});
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+   Route::get('/', [AdminMainController::class, 'index'])->name('diller');
+   Route::post('/', [AdminMainController::class, 'store'])->name('diller.store');
+   Route::put('/', [AdminMainController::class, 'update'])->name('diller.update');
+   Route::get('/diller/delete/{diller}', [AdminMainController::class, 'delete'])->name('diller.delete');
+
+   Route::get('/client', [ClientController::class, 'index'])->name('client');
 });

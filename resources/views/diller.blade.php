@@ -110,9 +110,6 @@
                         <div class="item day_item">
                             <p class="name_name">Действует до</p>
                         </div>
-                        <div class="item packet_item">
-                            <p class="name_name">Пакет</p>
-                        </div>
                         <div class="item btn_item">
                             <p class="name_name">Действия</p>
                         </div>
@@ -265,9 +262,6 @@
                                 </div>
                                 <div class="item day_item">
                                     <p class="name_info">{{ $client->end_date }}</p>
-                                </div>
-                                <div class="item packet_item">
-                                    <p class="name_info">{{ $client->paket }}</p>
                                 </div>
                                 <div class="item btn_item">
                                     <div class="list_btn">Действия</div>
