@@ -82,7 +82,7 @@
                 <a href="#" class="search">Поиск</a>
             </form>
             <div class="main_all_user">
-                <div class="active_user">149</div>
+                <div class="active_user">{{ $activeClient }}</div>
                 <div class="num_single">
                     <select class="count_clients">
                         <option value="10" {{ $count == 10 ? 'selected' : '' }}>10</option>
@@ -114,137 +114,10 @@
                             <p class="name_name">Действия</p>
                         </div>
                     </div>
-                    {{-- <div class="item_user ended">
-                        <div class="item check_item">
-                            <input type="checkbox" class="check_it" />
-                        </div>
-                        <div class="item login_item">
-                            <p class="name_info">Vlad_1997</p>
-                        </div>
-                        <div class="item pass_item">
-                            <p class="name_info">Qwerty123</p>
-                        </div>
-                        <div class="item server_item">
-                            <p class="name_info">1</p>
-                        </div>
-                        <div class="item notific_item">
-                            <p class="name_info">sdfdsf d sf</p>
-                        </div>
-                        <div class="item day_item">
-                            <p class="name_info">10.02.22</p>
-                        </div>
-                        <div class="item packet_item">
-                            <p class="name_info">Телекарта 85е</p>
-                        </div>
-                        <div class="item btn_item">
-                            <div class="list_btn">Действия</div>
-                            <div class="all_action">
-                                <a href="#">Изменить</a>
-                                <a href="#">Удалить</a>
-                                <a href="pay.html">Купить</a>
-                                <a href="#">Остановит</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item_user">
-                        <div class="item check_item">
-                            <input type="checkbox" class="check_it" />
-                        </div>
-                        <div class="item login_item">
-                            <p class="name_info">Vlad_1997</p>
-                        </div>
-                        <div class="item pass_item">
-                            <p class="name_info">Qwerty123</p>
-                        </div>
-                        <div class="item server_item">
-                            <p class="name_info">1</p>
-                        </div>
-                        <div class="item notific_item">
-                            <p class="name_info">sdfdsf d sf</p>
-                        </div>
-                        <div class="item day_item">
-                            <p class="name_info">13.02.22</p>
-                        </div>
-                        <div class="item packet_item">
-                            <p class="name_info">Телекарта 85е</p>
-                        </div>
-                        <div class="item btn_item">
-                            <div class="list_btn">Действия</div>
-                            <div class="all_action">
-                                <a href="#">Изменить</a>
-                                <a href="#">Удалить</a>
-                                <a href="pay.html">Купить</a>
-                                <a href="#">Остановит</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item_user active">
-                        <div class="item check_item">
-                            <input type="checkbox" class="check_it" />
-                        </div>
-                        <div class="item login_item">
-                            <p class="name_info">Vlad_1997</p>
-                        </div>
-                        <div class="item pass_item">
-                            <p class="name_info">Qwerty123</p>
-                        </div>
-                        <div class="item server_item">
-                            <p class="name_info">1</p>
-                        </div>
-                        <div class="item notific_item">
-                            <p class="name_info">sdfdsf d sf</p>
-                        </div>
-                        <div class="item day_item">
-                            <p class="name_info">04.03.22</p>
-                        </div>
-                        <div class="item packet_item">
-                            <p class="name_info">Телекарта 85е</p>
-                        </div>
-                        <div class="item btn_item">
-                            <div class="list_btn">Действия</div>
-                            <div class="all_action">
-                                <a href="#">Изменить</a>
-                                <a href="#">Удалить</a>
-                                <a href="pay.html">Купить</a>
-                                <a href="#">Остановит</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item_user">
-                        <div class="item check_item">
-                            <input type="checkbox" class="check_it" />
-                        </div>
-                        <div class="item login_item">
-                            <p class="name_info">Vlad_1997</p>
-                        </div>
-                        <div class="item pass_item">
-                            <p class="name_info">Qwerty123</p>
-                        </div>
-                        <div class="item server_item">
-                            <p class="name_info">1</p>
-                        </div>
-                        <div class="item notific_item">
-                            <p class="name_info">sdfdsf d sf</p>
-                        </div>
-                        <div class="item day_item">
-                            <p class="name_info">04.01.22</p>
-                        </div>
-                        <div class="item packet_item">
-                            <p class="name_info">Телекарта 85е</p>
-                        </div>
-                        <div class="item btn_item">
-                            <div class="list_btn">Действия</div>
-                            <div class="all_action">
-                                <a href="#">Изменить</a>
-                                <a href="#">Удалить</a>
-                                <a href="pay.html">Купить</a>
-                                <a href="#">Остановит</a>
-                            </div>
-                        </div>
-                    </div> --}}
                     @if (isset($clients) && count($clients) > 0)
                         @foreach ($clients as $client)
-                            <div class="item_user" data-client_id={{ $client->id }} data-login={{ $client->login }} data-parol={{ $client->parol }} data-server={{ $client->server }} data-description={{ $client->description }}>
+                            <div class="item_user @if ($client->end_date && strtotime($client->end_date) > strtotime(Date::now()) + 259200) active @endif @if ($client->end_date && strtotime($client->end_date) <= strtotime(Date::now()) + 259200) ended @endif" data-client_id={{ $client->id }} data-login={{ $client->login }} data-parol={{ $client->parol }} data-server={{ $client->server }}
+                                data-description={{ $client->description }}>
                                 <div class="item check_item">
                                     <input type="checkbox" class="check_it" />
                                 </div>
@@ -261,7 +134,7 @@
                                     <p class="name_info">{{ $client->description }}</p>
                                 </div>
                                 <div class="item day_item">
-                                    <p class="name_info">{{ $client->end_date }}</p>
+                                    <p class="name_info">{{ $client->end_date ? Date::parse($client->end_date)->format('d.m.Y') : '' }}</p>
                                 </div>
                                 <div class="item btn_item">
                                     <div class="list_btn">Действия</div>
@@ -269,7 +142,7 @@
                                         <p class="change_client_data">Изменить</p>
                                         <p class="delete_client">Удалить</p>
                                         <a href="{{ route('diller.buyPaket', $client->id) }}">Купить</a>
-                                        <p>Остановит</p>
+                                        <p class="btn_stop_paket">Остановит</p>
                                     </div>
                                 </div>
                             </div>
@@ -470,6 +343,29 @@
                         }
                     })
                 }
+            } else if (e.target.classList.contains('btn_stop_paket')) {
+                const body = {};
+                body.client_id = e.target.closest('.item_user').dataset.client_id;
+                fetch('/diller/stop_client', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    body: JSON.stringify(body)
+                }).then(res => {
+                    return res.json();
+                }).then(data => {
+                    if (data.status == true) {
+                        window.location.reload();
+                        // console.log(data);
+                    } else if (data.status == false) {
+                        alert(data.message);
+                    } else {
+                        console.log(data);
+                    }
+                })
+                // console.log(body);
             }
         })
     </script>

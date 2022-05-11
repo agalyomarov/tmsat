@@ -97,7 +97,8 @@
                 if (data.status == false) {
                     messages.innerHTML = `<p style="margin-bottom:5px;color:white">${data.message}</p>`;
                 } else if (data.status == true) {
-                    console.log(data);
+                    window.location = '/diller';
+                    // console.log(data);
                 }
             });
         })

@@ -8,6 +8,7 @@ use App\Rules\LatinLetters;
 use App\Rules\LowerCase;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,8 +17,9 @@ class DillerController extends Controller
     public function index(Request $request)
     {
         $count = $request->query('count', 10);
-        $clients = Client::where('diller_id', $request->user()->id)->get()->take($count)->reverse();;
-        return view('diller', compact('clients', 'count'));
+        $clients = Client::where('diller_id', $request->user()->id)->get()->take($count)->reverse();
+        $activeClient = Client::where('diller_id', $request->user()->id)->where('end_date', '>=', Date::now()->format('d.m.Y'))->count();
+        return view('diller', compact('clients', 'count', 'activeClient'));
     }
     public function createClient(Request $request)
     {
@@ -88,6 +90,7 @@ class DillerController extends Controller
         $data = $request->json()->all();
         try {
             $diller = $request->user();
+            $client = Client::where('id', $data['client_id'])->where('diller_id', $diller->id)->first();
             $generalPrice = intval($data['dateForPaket']) * 0.10;
             $ostatok = $diller->balance - $generalPrice;
             if ($diller->balance < $generalPrice) {
@@ -95,14 +98,41 @@ class DillerController extends Controller
             }
             DB::beginTransaction();
             $dateEndPaket = Carbon::now()->addMonth($data['dateForPaket']);
-            Client::where('id', $data['client_id'])->where('diller_id', $diller->id)->update(['end_date' => $dateEndPaket]);
+            if (!$client->end_date) {
+                $client->update(['end_date' => $dateEndPaket]);
+            } else {
+                $addToEndDate = Carbon::parse($client->end_date)->addMonth($data['dateForPaket']);
+                $client->update(['end_date' => $addToEndDate]);
+            }
             User::where('id', $diller->id)->update(['balance' => $ostatok]);
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
-            // return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
-            return response()->json(['status' => false, 'message' => $e->getMessage()]);
+            return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
+            // return response()->json(['status' => false, 'message' => $e->getMessage()]);
+        }
+    }
+    public function stopClient(Request $request)
+    {
+        $data = $request->json()->all();
+        try {
+            $diller = $request->user();
+            $client = Client::where('id', $data['client_id'])->where('diller_id', $diller->id)->first();
+            $todayDateTime = strtotime(Carbon::now()->format('d.m.Y'));
+            $paketEndDateTime = strtotime($client->end_date);
+            $ostatokDney = ($paketEndDateTime - $todayDateTime) / 86400;
+            $avaragePriceForDay = 0.10 / 30;
+            $generalSummaVozvrata = round($ostatokDney * $avaragePriceForDay, 2);
+            DB::beginTransaction();
+            $client->update(['end_date' => null]);
+            User::find($request->user()->id)->update(['balance' => intval($request->user()->balance) + $generalSummaVozvrata]);
+            DB::commit();
+            return response()->json(['status' => true]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
+            // return response()->json(['status' => false, 'message' => $e->getMessage()]);
         }
     }
 }
