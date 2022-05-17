@@ -75,9 +75,16 @@ class DillerController extends Controller
     {
         $data = $request->all();
         try {
-            Client::where('id', $data['client_id'])->where('diller_id', $request->user()->id)->delete();
+            DB::beginTransaction();
+            $client = Client::where('id', $data['client_id'])->where('diller_id', $request->user()->id)->first();
+            $generalOstatatok = round(((strtotime($client->end_date) - strtotime(Carbon::now()->format('d.m.Y'))) / 86400) * 0.003, 2);
+            User::where('id', $request->user()->id)->update(['balance' => round(($request->user()->balance) + $generalOstatatok, 2)]);
+            $client->delete();
+            DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
+            DB::rollback();
+            // return response()->json(['status' => false, 'message' => $e->getMessage()]);
             return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
         }
     }
@@ -119,20 +126,31 @@ class DillerController extends Controller
         try {
             $diller = $request->user();
             $client = Client::where('id', $data['client_id'])->where('diller_id', $diller->id)->first();
-            $todayDateTime = strtotime(Carbon::now()->format('d.m.Y'));
-            $paketEndDateTime = strtotime($client->end_date);
-            $ostatokDney = ($paketEndDateTime - $todayDateTime) / 86400;
-            $avaragePriceForDay = 0.10 / 30;
-            $generalSummaVozvrata = round($ostatokDney * $avaragePriceForDay, 2);
+            $generalSummaVozvrata = round(((strtotime($client->end_date) - strtotime(Carbon::now()->format('d.m.Y'))) / 86400) * 0.003, 2);
             DB::beginTransaction();
             $client->update(['end_date' => null]);
-            User::find($request->user()->id)->update(['balance' => intval($request->user()->balance) + $generalSummaVozvrata]);
+            User::find($request->user()->id)->update(['balance' => round(($request->user()->balance) + $generalSummaVozvrata, 2)]);
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
             // return response()->json(['status' => false, 'message' => $e->getMessage()]);
+        }
+    }
+    public function setServer(Request $request)
+    {
+        try {
+            // return response()->json($request->user()->id);
+            DB::beginTransaction();
+            $idUser = $request->user()->id;
+            $server = intval($request->json('server'));
+            Client::where('diller_id', $idUser)->update(['server' => $server]);
+            return response()->json(['status' => true]);
+            DB::commit();
+        } catch (\Exception $e) {
+            // return response()->json(['status' => false, 'message' => 'Произлошла серверная ошибка.Пожалюста перезагрузите стараницу']);
+            return response()->json(['status' => false, 'message' => $e->getMessage()]);
         }
     }
 }

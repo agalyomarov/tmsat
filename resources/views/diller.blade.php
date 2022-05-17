@@ -93,7 +93,7 @@
                 <div class="all_user">
                     <div class="top_cap">
                         <div class="item check_item">
-                            <input type="checkbox" class="check_it" />
+                            <input type="checkbox" class="check_it " id="checkBoxForAllUser">
                         </div>
                         <div class="item login_item">
                             <p class="name_name">Логин</p>
@@ -150,12 +150,18 @@
                     @endif
                 </div>
                 <div class="notted_single">
-                    <select>
-                        <option>Купить пакеты</option>
-                        <option>Сервер переполнен</option>
-                        <option>Ваш текст</option>
+                    <select class="selectForAllClients">
+                        <option value="1">#1СЕРВЕР</option>
+                        <option value="2">#2СЕРВЕР</option>
+                        <option value="3">#3СЕРВЕР</option>
+                        <option value="4">#4СЕРВЕР</option>
+                        <option value="5">#5СЕРВЕР</option>
+                        <option value="6">#6СЕРВЕР</option>
+                        <option value="7">#7ЕРВЕР</option>
+                        <option value="8">#8СЕРВЕР</option>
+                        <option value="9">#9СЕРВЕР</option>
                     </select>
-                    <a href="#" class="install">Применить</a>
+                    <span class="install" id="setServerAllUser">Применить</span>
                 </div>
                 <div class="notted_single">
                     <select>
@@ -167,7 +173,7 @@
                         <option>Продлить на 6 месяцев</option>
                         <option>Продлить на 1 год</option>
                     </select>
-                    <a href="#" class="install">Применить</a>
+                    <span class="install">Применить</span>
                 </div>
             </div>
         </div>
@@ -333,8 +339,10 @@
                         },
                         body: JSON.stringify(body)
                     }).then(res => {
+                        // res.text().then(data => console.log(data))
                         return res.json();
                     }).then(data => {
+                        // console.log(data);
                         if (data.status == true) {
                             window.location.reload();
                             // console.log(data);
@@ -367,6 +375,49 @@
                 })
                 // console.log(body);
             }
+        })
+        const checkBoxForAllUser = document.getElementById('checkBoxForAllUser');
+        const blockAllUser = checkBoxForAllUser.closest('.all_user');
+        const setServerAllUser = document.getElementById('setServerAllUser');
+        const mainAlluser = document.querySelector('.main_all_user');
+        checkBoxForAllUser.addEventListener('change', function(e) {
+            blockAllUser.querySelectorAll('.item_user').forEach(function(element, index) {
+                element.querySelector('input.check_it').click();
+            })
+        });
+        setServerAllUser.addEventListener('click', function(e) {
+            const allClients = {
+                clients: []
+            };
+            blockAllUser.querySelectorAll('.item_user').forEach(function(element, index) {
+                if (element.querySelector('input.check_it').checked) {
+                    allClients.clients.push(element.closest('.item_user').dataset.client_id);
+                }
+            })
+            allClients.server = document.querySelector('.selectForAllClients').value;
+            if (allClients.clients.length > 0) {
+                fetch('/diller/set-server-all-client', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    body: JSON.stringify(allClients)
+                }).then(res => {
+                    res.text().then(data => console.log(data));
+                    return res.json();
+                }).then(data => {
+                    if (data.status == true) {
+                        // window.location.reload();
+                        console.log(data);
+                    } else if (data.status == false) {
+                        alert(data.message);
+                    } else {
+                        console.log(data);
+                    }
+                })
+            }
+            // console.log(allClients);
         })
     </script>
 </body>
