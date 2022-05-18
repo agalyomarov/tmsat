@@ -78,11 +78,11 @@
             @include('includes.form_profile')
             <form class="search_user">
                 <a href="create_cliente.html" class="add_btn">Добавить клиента</a>
-                <input type="text" placeholder="Введите имя пользователя" />
-                <a href="#" class="search">Поиск</a>
+                <input type="text" placeholder="Введите имя пользователя" id="inputForSearchClients" name="search" value="{{ $search }}">
+                <button class=" search" id="btnForSearchClients">Поиск</button>
             </form>
             <div class="main_all_user">
-                <div class="active_user">{{ $activeClient }}</div>
+                <div class="active_user">{{ $activeClient }} ({{ $countAllClients }})</div>
                 <div class="num_single">
                     <select class="count_clients">
                         <option value="10" {{ $count == 10 ? 'selected' : '' }}>10</option>
@@ -164,16 +164,16 @@
                     <span class="install" id="setServerAllUser">Применить</span>
                 </div>
                 <div class="notted_single">
-                    <select>
-                        <option>Продлить на 1 месяц</option>
-                        <option>Продлить на 2 месяца</option>
-                        <option>Продлить на 3 месяца</option>
-                        <option>Продлить на 4 месяца</option>
-                        <option>Продлить на 5 месяцев</option>
-                        <option>Продлить на 6 месяцев</option>
-                        <option>Продлить на 1 год</option>
+                    <select class="selectPaketForAllUser">
+                        <option value="1">Продлить на 1 месяц</option>
+                        <option value="2">Продлить на 2 месяца</option>
+                        <option value="3">Продлить на 3 месяца</option>
+                        <option value="4">Продлить на 4 месяца</option>
+                        <option value="5">Продлить на 5 месяцев</option>
+                        <option value="6">Продлить на 6 месяцев</option>
+                        <option value="12">Продлить на 1 год</option>
                     </select>
-                    <span class="install">Применить</span>
+                    <span class="install" id="buyPaketForAllUser">Применить</span>
                 </div>
             </div>
         </div>
@@ -362,6 +362,7 @@
                     },
                     body: JSON.stringify(body)
                 }).then(res => {
+                    // res.text().then(data => console.log(data));
                     return res.json();
                 }).then(data => {
                     if (data.status == true) {
@@ -370,7 +371,7 @@
                     } else if (data.status == false) {
                         alert(data.message);
                     } else {
-                        console.log(data);
+                        // console.log(data);
                     }
                 })
                 // console.log(body);
@@ -380,6 +381,8 @@
         const blockAllUser = checkBoxForAllUser.closest('.all_user');
         const setServerAllUser = document.getElementById('setServerAllUser');
         const mainAlluser = document.querySelector('.main_all_user');
+        const buyPaketForAllUser = document.getElementById('buyPaketForAllUser');
+        const selectPaketForAllUser = document.querySelector('.selectPaketForAllUser');
         checkBoxForAllUser.addEventListener('change', function(e) {
             blockAllUser.querySelectorAll('.item_user').forEach(function(element, index) {
                 element.querySelector('input.check_it').click();
@@ -404,21 +407,64 @@
                     },
                     body: JSON.stringify(allClients)
                 }).then(res => {
-                    res.text().then(data => console.log(data));
+                    // res.text().then(data => console.log(data));
                     return res.json();
                 }).then(data => {
                     if (data.status == true) {
-                        // window.location.reload();
-                        console.log(data);
+                        window.location.reload();
+                        // console.log(data);
                     } else if (data.status == false) {
                         alert(data.message);
                     } else {
-                        console.log(data);
+                        // console.log(data);
+                        window.location.reload();
                     }
                 })
             }
             // console.log(allClients);
         })
+        buyPaketForAllUser.addEventListener('click', function(e) {
+            const allClients = {
+                clients: []
+            };
+            blockAllUser.querySelectorAll('.item_user').forEach(function(element, index) {
+                if (element.querySelector('input.check_it').checked) {
+                    allClients.clients.push(element.closest('.item_user').dataset.client_id);
+                }
+            })
+            allClients.paket = selectPaketForAllUser.value;
+            if (allClients.clients.length > 0) {
+                fetch('/diller/buy-paket-all-client', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    body: JSON.stringify(allClients)
+                }).then(res => {
+                    // res.text().then(data => console.log(data));
+                    return res.json();
+                }).then(data => {
+                    if (data.status == true) {
+                        window.location.reload();
+                        // console.log(data);
+                    } else if (data.status == false) {
+                        alert(data.message);
+                    } else {
+                        // console.log(data);
+                        window.location.reload();
+                    }
+                })
+            }
+            // console.log(allClients);
+        })
+        // const inputForSearchClients = document.getElementById('inputForSearchClients');
+        // const btnForSearchClients = document.getElementById('btnForSearchClients');
+        // btnForSearchClients.addEventListener('click', function(e) {
+        //     if (inputForSearchClients.value.trim().length > 0) {
+        //         window.location.href = `/diller?search=${inputForSearchClients.value.trim()}`;
+        //     }
+        // })
     </script>
 </body>
 

@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
       Route::post('/diller/client', 'buyPaketStore')->name('diller.buyPaketStore');
       Route::post('/diller/stop_client', 'stopClient')->name('diller.stopClient');
       Route::post('/diller/set-server-all-client', 'setServer')->name('diller.setServer');
+      Route::post('/diller/buy-paket-all-client', 'buyPaketAllUser')->name('diller.buyPaketAllUser');
    });
 });
 
@@ -53,5 +54,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
    Route::put('/', [AdminMainController::class, 'update'])->name('diller.update');
    Route::get('/diller/delete/{diller}', [AdminMainController::class, 'delete'])->name('diller.delete');
 
-   // Route::get('/client', [ClientController::class, 'index'])->name('client');
+   Route::get('/client', [ClientController::class, 'index'])->name('client');
 });
