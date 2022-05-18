@@ -6,6 +6,25 @@
         </div>
     </div>
     <div class="row mt-4">
+        <div class="col-sm-12 col-md-6">
+            <form method="search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" name="login_search" value="{{ $login_search }}">
+                        <div class="input-group-append">
+                            <input type="submit" class="input-group-text" value="поиск">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-4">
         <div class=" col-sm-12 col-md-6">
             @if ($errors->any())
                 <div class="mb-2">
@@ -26,11 +45,11 @@
                 </div>
                 <div class="form-group">
                     <label>parol</label>
-                    <input type="text" class="form-control" name="parol" value="{{ old('login', $diller ? $diller->parol : '') }}">
+                    <input type="text" class="form-control" name="parol" value="{{ old('parol', $diller ? $diller->parol : '') }}">
                 </div>
                 <div class="form-group">
                     <label>balance</label>
-                    <input type="text" class="form-control" name="balance" value="{{ old('login', $diller ? $diller->balance : '') }}">
+                    <input type="text" class="form-control" name="balance" value="{{ old('balance', $diller ? $diller->balance : '') }}">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success" value="{{ $diller ? 'Изменть' : 'Добавить диллер' }}">
@@ -68,18 +87,20 @@
                         </table>
                     </div>
                 </div>
-                {{ $dillers->links() }}
+                {{ $dillers->withQueryString()->links() }}
             @endif
         </div>
     </div>
     <script>
-        document.querySelector('.table_dillers').addEventListener('click', function(e) {
-            if (e.target.classList.contains('btn_for_delete_diller')) {
-                const check = confirm('Вы точно хотите удалить диллер?');
-                if (check) {
-                    window.location = `/admin/diller/delete/${e.target.dataset.diller_id}`;
+        if (document.querySelector('.table_dillers')) {
+            document.querySelector('.table_dillers').addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn_for_delete_diller')) {
+                    const check = confirm('Вы точно хотите удалить диллер?');
+                    if (check) {
+                        window.location = `/admin/diller/delete/${e.target.dataset.diller_id}`;
+                    }
                 }
-            }
-        })
+            })
+        }
     </script>
 @endsection

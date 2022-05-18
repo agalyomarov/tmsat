@@ -55,4 +55,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
    Route::get('/diller/delete/{diller}', [AdminMainController::class, 'delete'])->name('diller.delete');
 
    Route::get('/client', [ClientController::class, 'index'])->name('client');
+   Route::get('/client/delete/{client}', [ClientController::class, 'delete'])->name('client.delete');
 });

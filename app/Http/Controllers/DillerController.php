@@ -19,7 +19,12 @@ class DillerController extends Controller
         $count = $request->query('count', 10);
         $search = $request->query('search', '');
         $countAllClients = Client::where('diller_id', $request->user()->id)->get()->count();
-        $clients = Client::where('diller_id', $request->user()->id)->where('login', 'LIKE', "%$search%")->get()->take($count)->reverse();
+        if ($count == 1000) {
+            $clients = Client::where('diller_id', $request->user()->id)->where('login', 'LIKE', "%$search%")->orderBy('id', 'DESC')->paginate($count);
+        } else {
+            $clients = Client::where('diller_id', $request->user()->id)->where('login', 'LIKE', "%$search%")->orderBy('id', 'DESC')->get()->take($count);
+        }
+        // dd($clients);
         $activeClient = Client::where('diller_id', $request->user()->id)->where('end_date', '>=', Date::now()->format('d.m.Y'))->count();
         return view('diller', compact('clients', 'count', 'activeClient', 'search', 'countAllClients'));
     }

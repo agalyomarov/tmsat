@@ -14,10 +14,11 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
+        $login_search = strtolower($request->query('login_search', ''));
         $diller = User::find($request->query('diller'));
-        $dillers = User::paginate(30);
+        $dillers = User::where('login', 'LIKE', "%$login_search%")->paginate(50);
         // dd($dillers);
-        return view('admin.diller', compact('dillers', 'diller'));
+        return view('admin.diller', compact('dillers', 'diller', 'login_search'));
     }
     public function store(AdminDillerStoreRequest $request)
     {

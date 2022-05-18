@@ -13,16 +13,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa53675e71.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/js.js?4') }}"></script>
     <style>
         .all_user .top_cap .item p,
         .all_user .item_user .item .list_btn {
-            padding: 3px 5px !important;
+            padding: 2px 2px !important;
             width: auto !important;
             /* margin-top: 20px !important; */
             display: inline-block !important;
-            border-radius: 5px !important;
+            border-radius: 3px !important;
             color: #000 !important;
             font-weight: 500 !important;
             text-align: center !important;
@@ -62,6 +63,56 @@
             color: #000 !important;
             background: #45edff !important;
             font-size: 16px !important;
+        }
+
+        .paginate {
+            width: 150px;
+            height: 40px;
+            color: #fff;
+            float: right;
+            /* line-height: 30px; */
+        }
+
+        @media (max-width:769px) {
+            .paginate {
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+
+        .paginate i#prevPage {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 28px;
+            font-size: 18px;
+            margin: 0 5px;
+        }
+
+        .paginate i#nextPage {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 28px;
+            font-size: 18px;
+            margin: 0 5px;
+
+        }
+
+        .paginate span {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 28px;
+            font-size: 18px;
+            margin: 0 5px;
 
         }
 
@@ -108,7 +159,7 @@
                             <p class="name_name">Заметка</p>
                         </div>
                         <div class="item day_item">
-                            <p class="name_name">Действует до</p>
+                            <p class="name_name">Окончание</p>
                         </div>
                         <div class="item btn_item">
                             <p class="name_name">Действия</p>
@@ -163,7 +214,7 @@
                     </select>
                     <span class="install" id="setServerAllUser">Применить</span>
                 </div>
-                <div class="notted_single">
+                <div class="notted_single" style="overflow:hidden;padding-right: 3px">
                     <select class="selectPaketForAllUser">
                         <option value="1">Продлить на 1 месяц</option>
                         <option value="2">Продлить на 2 месяца</option>
@@ -174,6 +225,13 @@
                         <option value="12">Продлить на 1 год</option>
                     </select>
                     <span class="install" id="buyPaketForAllUser">Применить</span>
+                    @if ($count == 1000)
+                        <div class="paginate">
+                            <i data-url="{{ $clients->previousPageUrl() ?? 'diller?page=' }}&search={{ $search }}&count={{ $count }}" id="prevPage" class="fa-solid fa-angle-left"></i>
+                            <span>{{ $clients->currentPage() }}</span>
+                            <i data-url="{{ $clients->nextPageUrl() ?? 'diller?page=' }}&search={{ $search }}&count={{ $count }}" id="nextPage" class="fa-solid fa-angle-right"></i>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -458,13 +516,18 @@
             }
             // console.log(allClients);
         })
-        // const inputForSearchClients = document.getElementById('inputForSearchClients');
-        // const btnForSearchClients = document.getElementById('btnForSearchClients');
-        // btnForSearchClients.addEventListener('click', function(e) {
-        //     if (inputForSearchClients.value.trim().length > 0) {
-        //         window.location.href = `/diller?search=${inputForSearchClients.value.trim()}`;
-        //     }
-        // })
+        const prevPage = document.querySelector('.paginate #prevPage');
+        const nextPage = document.querySelector('.paginate #nextPage');
+        if (prevPage) {
+            prevPage.addEventListener('click', function(e) {
+                window.location.href = e.target.dataset.url;
+            })
+        }
+        if (nextPage) {
+            nextPage.addEventListener('click', function(e) {
+                window.location.href = e.target.dataset.url;
+            })
+        }
     </script>
 </body>
 
