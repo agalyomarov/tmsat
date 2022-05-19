@@ -32,94 +32,84 @@
                     <p class="name_work left">Сервер</p>
                     <p class="sum_work right">Загрузка</p>
                 </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s1.tmsat.live</p>
-                    <p class="sum_work">83%</p>
-                    <div class="line_all">
-                        <div class="line_workload first"></div>
-                    </div>
-                </div>
+
                 <div class="item_workload">
                     <p class="name_work">Таджикистан s2.tmsat.live</p>
-                    <p class="sum_work">80%</p>
+                    <p class="sum_work">{{ isset($data[1]) ? $data[1] : 0 }}%</p>
                     <div class="line_all">
-                        <div class="line_workload second"></div>
+                        <div class="line_workload second" style="width:{{ isset($data[1]) ? $data[1] : 0 }}%"></div>
                     </div>
                 </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">50%</p>
-                    <div class="line_all">
-                        <div class="line_workload third"></div>
-                    </div>
-                </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">83%</p>
-                    <div class="line_all">
-                        <div class="line_workload first"></div>
-                    </div>
-                </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s1.tmsat.live</p>
-                    <p class="sum_work">83%</p>
-                    <div class="line_all">
-                        <div class="line_workload first"></div>
-                    </div>
-                </div>
+
                 <div class="item_workload">
                     <p class="name_work">Таджикистан s2.tmsat.live</p>
-                    <p class="sum_work">80%</p>
+                    <p class="sum_work">{{ isset($data[2]) ? $data[2] : 0 }}%</p>
                     <div class="line_all">
-                        <div class="line_workload second"></div>
+                        <div class="line_workload second" style="width:{{ isset($data[2]) ? $data[2] : 0 }}%"></div>
                     </div>
                 </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">50%</p>
-                    <div class="line_all">
-                        <div class="line_workload third"></div>
-                    </div>
-                </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">83%</p>
-                    <div class="line_all">
-                        <div class="line_workload first"></div>
-                    </div>
-                </div>
-                <div class="item_workload">
-                    <p class="name_work">Таджикистан s1.tmsat.live</p>
-                    <p class="sum_work">83%</p>
-                    <div class="line_all">
-                        <div class="line_workload first"></div>
-                    </div>
-                </div>
+
                 <div class="item_workload">
                     <p class="name_work">Таджикистан s2.tmsat.live</p>
-                    <p class="sum_work">80%</p>
+                    <p class="sum_work">{{ isset($data[3]) ? $data[3] : 0 }}%</p>
                     <div class="line_all">
-                        <div class="line_workload second"></div>
+                        <div class="line_workload second" style="width:{{ isset($data[3]) ? $data[3] : 0 }}%"></div>
                     </div>
                 </div>
+
+
                 <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">50%</p>
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[4]) ? $data[4] : 0 }}%</p>
                     <div class="line_all">
-                        <div class="line_workload third"></div>
+                        <div class="line_workload second" style="width:{{ isset($data[4]) ? $data[4] : 0 }}%"></div>
                     </div>
                 </div>
+
                 <div class="item_workload">
-                    <p class="name_work">Таджикистан s3.tmsat.live</p>
-                    <p class="sum_work">83%</p>
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[5]) ? $data[5] : 0 }}%</p>
                     <div class="line_all">
-                        <div class="line_workload first"></div>
+                        <div class="line_workload second" style="width:{{ isset($data[5]) ? $data[5] : 0 }}%"></div>
                     </div>
                 </div>
+
+                <div class="item_workload">
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[6]) ? $data[6] : 0 }}%</p>
+                    <div class="line_all">
+                        <div class="line_workload second" style="width:{{ isset($data[6]) ? $data[6] : 0 }}%"></div>
+                    </div>
+                </div>
+
+                <div class="item_workload">
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[7]) ? $data[7] : 0 }}%</p>
+                    <div class="line_all">
+                        <div class="line_workload second" style="width:{{ isset($data[7]) ? $data[7] : 0 }}%"></div>
+                    </div>
+                </div>
+
+                <div class="item_workload">
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[8]) ? $data[8] : 0 }}%</p>
+                    <div class="line_all">
+                        <div class="line_workload second" style="width:{{ isset($data[8]) ? $data[8] : 0 }}%"></div>
+                    </div>
+                </div>
+
+                <div class="item_workload">
+                    <p class="name_work">Таджикистан s2.tmsat.live</p>
+                    <p class="sum_work">{{ isset($data[9]) ? $data[9] : 0 }}%</p>
+                    <div class="line_all">
+                        <div class="line_workload second" style="width:{{ isset($data[9]) ? $data[9] : 0 }}%"></div>
+                    </div>
+                </div>
+
                 <div class="info_server_main">
-                    <p class="info_server all">9384</p>
-                    <p class="info_server day">154</p>
-                    <p class="info_server week">2911</p>
+                    <p class="info_server all">{{ $aktiveClients }}</p>
+                    {{-- <p class="info_server day">154</p>
+                    <p class="info_server week">2911</p> --}}
                 </div>
             </div>
         </div>

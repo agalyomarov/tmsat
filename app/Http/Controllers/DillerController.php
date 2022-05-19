@@ -26,7 +26,14 @@ class DillerController extends Controller
         }
         // dd($clients);
         $activeClient = Client::where('diller_id', $request->user()->id)->where('end_date', '>=', Date::now()->format('d.m.Y'))->count();
-        return view('diller', compact('clients', 'count', 'activeClient', 'search', 'countAllClients'));
+        $data = [];
+        $clientsForServer = DB::table('clients')->where('end_date', '>=', Carbon::now())->get()->groupBy('server')->toArray();
+        foreach ($clientsForServer as $index => $client) {
+            if (ceil((count($client) * 100) / 3000) >= 100) {
+                $data[$index] = true;
+            }
+        }
+        return view('diller', compact('clients', 'count', 'activeClient', 'search', 'countAllClients', 'data'));
     }
     public function createClient(Request $request)
     {
@@ -84,7 +91,8 @@ class DillerController extends Controller
         try {
             DB::beginTransaction();
             $client = Client::where('id', $data['client_id'])->where('diller_id', $request->user()->id)->first();
-            $generalOstatatok = round(((strtotime($client->end_date) - strtotime(Carbon::now()->format('d.m.Y'))) / 86400) * 0.0033, 2);
+            $clientEndDate = $client->end_date ?? Carbon::now()->format('d.m.Y');
+            $generalOstatatok = round(((strtotime($clientEndDate) - strtotime(Carbon::now()->format('d.m.Y'))) / 86400) * 0.0033, 2);
             User::where('id', $request->user()->id)->update(['balance' => round(($request->user()->balance) + $generalOstatatok, 2)]);
             DB::table('balance_history')->insert([
                 'user_id' => $request->user()->id,
@@ -132,7 +140,7 @@ class DillerController extends Controller
                 'date' => Carbon::now(),
                 'action' => '-',
                 'summa' => $generalPrice,
-                'operation' => 'Куплен пакет для клиента ' . $client->login . ' на ' . $data['dateForPaket'] . ' месяц'
+                'operation' => 'Куплен пакет на ' . $data['dateForPaket'] . ' месяц'
             ]);
             DB::commit();
             return response()->json(['status' => true]);
@@ -160,7 +168,7 @@ class DillerController extends Controller
                 'date' => Carbon::now(),
                 'action' => '+',
                 'summa' => $generalSummaVozvrata,
-                'operation' => 'Остановлен пакет для клиента ' . $client->login
+                'operation' => 'Остановлен пакет '
             ]);
             DB::commit();
             return response()->json(['status' => true]);

@@ -202,15 +202,15 @@
                 </div>
                 <div class="notted_single">
                     <select class="selectForAllClients">
-                        <option value="1">#1СЕРВЕР</option>
-                        <option value="2">#2СЕРВЕР</option>
-                        <option value="3">#3СЕРВЕР</option>
-                        <option value="4">#4СЕРВЕР</option>
-                        <option value="5">#5СЕРВЕР</option>
-                        <option value="6">#6СЕРВЕР</option>
-                        <option value="7">#7ЕРВЕР</option>
-                        <option value="8">#8СЕРВЕР</option>
-                        <option value="9">#9СЕРВЕР</option>
+                        <option value="1" {{ isset($data[1]) ? 'disabled' : '' }}>#1СЕРВЕР</option>
+                        <option value="2" {{ isset($data[2]) ? 'disabled' : '' }}>#2СЕРВЕР</option>
+                        <option value="3" {{ isset($data[3]) ? 'disabled' : '' }}>#3СЕРВЕР</option>
+                        <option value="4" {{ isset($data[4]) ? 'disabled' : '' }}>#4СЕРВЕР</option>
+                        <option value="5" {{ isset($data[5]) ? 'disabled' : '' }}>#5СЕРВЕР</option>
+                        <option value="6" {{ isset($data[6]) ? 'disabled' : '' }}>#6СЕРВЕР</option>
+                        <option value="7" {{ isset($data[7]) ? 'disabled' : '' }}>#7CЕРВЕР</option>
+                        <option value="8" {{ isset($data[8]) ? 'disabled' : '' }}>#8СЕРВЕР</option>
+                        <option value="9" {{ isset($data[9]) ? 'disabled' : '' }}>#9СЕРВЕР</option>
                     </select>
                     <span class="install" id="setServerAllUser">Применить</span>
                 </div>
@@ -255,15 +255,15 @@
                 <span class=" name_profile_edit">Сервер</span>
                 <select name="server">
                     <option value=""></option>
-                    <option value="1">Туркменистан s1.tmsat.live</option>
-                    <option value="2">Туркменистан s2.tmsat.live</option>
-                    <option value="3">Туркменистан s3.tmsat.live</option>
-                    <option value="4">Туркменистан s4.tmsat.live</option>
-                    <option value="5">Туркменистан s5.tmsat.live</option>
-                    <option value="6">Туркменистан s6.tmsat.live</option>
-                    <option value="7">Туркменистан s7.tmsat.live</option>
-                    <option value="8">Туркменистан s8.tmsat.live</option>
-                    <option value="9">Туркменистан s9.tmsat.live</option>
+                    <option value="1" {{ isset($data[1]) ? 'disabled' : '' }}>Туркменистан s1.tmsat.live</option>
+                    <option value="2" {{ isset($data[2]) ? 'disabled' : '' }}>Туркменистан s2.tmsat.live</option>
+                    <option value="3" {{ isset($data[3]) ? 'disabled' : '' }}>Туркменистан s3.tmsat.live</option>
+                    <option value="4" {{ isset($data[4]) ? 'disabled' : '' }}>Туркменистан s4.tmsat.live</option>
+                    <option value="5" {{ isset($data[5]) ? 'disabled' : '' }}>Туркменистан s5.tmsat.live</option>
+                    <option value="6" {{ isset($data[6]) ? 'disabled' : '' }}>Туркменистан s6.tmsat.live</option>
+                    <option value="7" {{ isset($data[7]) ? 'disabled' : '' }}>Туркменистан s7.tmsat.live</option>
+                    <option value="8" {{ isset($data[8]) ? 'disabled' : '' }}>Туркменистан s8.tmsat.live</option>
+                    <option value="9" {{ isset($data[9]) ? 'disabled' : '' }}>Туркменистан s9.tmsat.live</option>
                 </select>
             </label>
             <label>

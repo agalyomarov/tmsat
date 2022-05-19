@@ -112,10 +112,10 @@
                     <div class="history_pay_item hide">
                         <div class="top_it">
                             <div class="item date">
-                                <p class="name_name">Дата и время</p>
+                                <p class="name_name">Дата</p>
                             </div>
                             <div class="item motion">
-                                <p class="name_name">Движение</p>
+                                <p class="name_name">+/-</p>
                             </div>
                             <div class="item price">
                                 <p class="name_name">Сумма</p>

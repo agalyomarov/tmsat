@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" type="{{ asset('text/css" href="slick/slick.css') }}">
-    <link rel="stylesheet" type="{{ asset('text/css" href="slick/slick-theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/framework.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css?1') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/js.js?2') }}"></script>
-    <title></title>
+    <title>Главная</title>
 </head>
 
 <body>

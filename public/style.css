@@ -1381,11 +1381,11 @@ header .list_navi li a:hover {
 }
 
 .main_pay_balance .history_pay_item .item.date {
-    width: 20%;
+    width: 22%;
 }
 
 .main_pay_balance .history_pay_item .item.motion {
-    width: 15%;
+    width: 12%;
 }
 
 .main_pay_balance .history_pay_item .item.price {
@@ -1393,7 +1393,7 @@ header .list_navi li a:hover {
 }
 
 .main_pay_balance .history_pay_item .item.operation {
-    width: 50%;
+    width: 48%;
 }
 
 
