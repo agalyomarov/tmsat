@@ -30,7 +30,7 @@ class LoginController extends Controller
                 'parol' => ['required', 'min:5', 'max:8']
             ],
             [
-                'login.*,unique,min.max' => '<p>Логин должен состоять только из маленьких латинских букв.</p> <p>К разрешенным символам относятся только цифры!Пример login12345</p>',
+                'login.*,[unique,min.max]' => '<p>Логин должен состоять только из маленьких латинских букв.</p> <p>К разрешенным символам относятся только цифры!Пример login12345</p>',
             ]
         );
         // dd($data->errors()->messages());
@@ -65,9 +65,6 @@ class LoginController extends Controller
             [
                 'login' => ['required', 'min:5', 'max:8', 'exists:users,login', 'alpha_num', new LowerCase, new LatinLetters],
                 'parol' => ['required', 'min:5', 'max:8']
-            ],
-            [
-                'login.*,exists,min.max' => '<p>Логин должен состоять только из маленьких латинских букв.</p> <p>К разрешенным символам относятся только цифры!Пример login12345</p>',
             ]
         );
         // dd($data->errors()->messages());
