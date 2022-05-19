@@ -91,7 +91,7 @@ class DillerController extends Controller
                 'date' => Carbon::now(),
                 'action' => '+',
                 'summa' => $generalOstatatok,
-                'operation' => 'Удален клиент ' . $client->login .
+                'operation' => 'Удален клиент ' . $client->login
             ]);
             $client->delete();
 
