@@ -26,7 +26,7 @@ class LoginController extends Controller
                 'parol' => $request->get('parol')
             ],
             [
-                'login' => ['required', 'alpha_num', new LowerCase, new LatinLetters, 'unique:users,login', 'min:5', 'max:8'],
+                'login' => ['required', 'unique:users,login', 'min:5', 'max:8', 'alpha_num', new LowerCase, new LatinLetters],
                 'parol' => ['required', 'min:5', 'max:8']
             ],
             [
@@ -63,7 +63,7 @@ class LoginController extends Controller
                 'parol' => $request->get('parol')
             ],
             [
-                'login' => ['required', 'alpha_num', new LowerCase, new LatinLetters, 'min:5', 'max:8', 'exists:users,login'],
+                'login' => ['required', 'min:5', 'max:8', 'exists:users,login', 'alpha_num', new LowerCase, new LatinLetters],
                 'parol' => ['required', 'min:5', 'max:8']
             ],
             [
