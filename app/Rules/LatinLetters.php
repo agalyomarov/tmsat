@@ -13,6 +13,6 @@ class LatinLetters implements Rule
     }
     public function message()
     {
-        return ':attribute должен составить с латинскими буквами';
+        return ':attribute должен составить с латинскими буквами и цифрами';
     }
 }
