@@ -86,7 +86,15 @@ class DillerController extends Controller
             $client = Client::where('id', $data['client_id'])->where('diller_id', $request->user()->id)->first();
             $generalOstatatok = round(((strtotime($client->end_date) - strtotime(Carbon::now()->format('d.m.Y'))) / 86400) * 0.0033, 2);
             User::where('id', $request->user()->id)->update(['balance' => round(($request->user()->balance) + $generalOstatatok, 2)]);
+            DB::table('balance_history')->insert([
+                'user_id' => $request->user()->id,
+                'date' => Carbon::now(),
+                'action' => '+',
+                'summa' => $generalOstatatok,
+                'operation' => 'Удален клиент ' . $client->login . '.Возврат средств ' . $generalOstatatok . ' $'
+            ]);
             $client->delete();
+
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
@@ -119,6 +127,13 @@ class DillerController extends Controller
                 $client->update(['end_date' => $addToEndDate]);
             }
             User::where('id', $diller->id)->update(['balance' => $ostatok]);
+            DB::table('balance_history')->insert([
+                'user_id' => $diller->id,
+                'date' => Carbon::now(),
+                'action' => '-',
+                'summa' => $generalPrice,
+                'operation' => 'Куплен пакет для клиента ' . $client->login . ' на ' . $data['dateForPaket'] . ' месяц'
+            ]);
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
@@ -140,6 +155,13 @@ class DillerController extends Controller
             DB::beginTransaction();
             $client->update(['end_date' => null]);
             User::find($request->user()->id)->update(['balance' => round(($request->user()->balance) + $generalSummaVozvrata, 2)]);
+            DB::table('balance_history')->insert([
+                'user_id' => $diller->id,
+                'date' => Carbon::now(),
+                'action' => '+',
+                'summa' => $generalSummaVozvrata,
+                'operation' => 'Остановлен пакет для клиента ' . $client->login
+            ]);
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
@@ -183,6 +205,13 @@ class DillerController extends Controller
                 $client->save();
             }
             $user->save();
+            DB::table('balance_history')->insert([
+                'user_id' => $user->id,
+                'date' => Carbon::now(),
+                'action' => '-',
+                'summa' => $generalPricePaket,
+                'operation' => 'Куплен пакет для  ' . $request->json('clients') . ' клиента'
+            ]);
             DB::commit();
             return response()->json([['status' => true]]);
         } catch (\Exception $e) {

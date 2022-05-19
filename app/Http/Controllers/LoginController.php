@@ -34,6 +34,7 @@ class LoginController extends Controller
         if ($data->fails()) {
             return redirect()->back()->withErrors(['errors' => [$data->errors()->messages()['login'][0] ?? '', $data->errors()->messages()['parol'][0] ?? '']]);
         }
+        $data = $request->all();
         try {
             $user = User::create($data);
             Auth::login($user);

@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+
    Route::get('/', [AdminMainController::class, 'index'])->name('diller');
    Route::post('/', [AdminMainController::class, 'store'])->name('diller.store');
    Route::put('/', [AdminMainController::class, 'update'])->name('diller.update');
@@ -60,6 +61,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
    Route::get('/news', [AdminNewsController::class, 'index'])->name('news');
    Route::post('/news', [AdminNewsController::class, 'store'])->name('news.store');
-   Route::put('/', [AdminNewsController::class, 'update'])->name('news.update');
+   Route::put('/news', [AdminNewsController::class, 'update'])->name('news.update');
    Route::get('/news/delete/{post}', [AdminNewsController::class, 'delete'])->name('news.delete');
 });
