@@ -6,8 +6,11 @@ use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
+use App\Rules\LatinLetters;
+use App\Rules\LowerCase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -15,9 +18,25 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    public function register(UserStoreRequest $request)
+    public function register(Request $request)
     {
-        $data = $request->validated();
+        $data = Validator::make(
+            [
+                'login' => $request->get('login'),
+                'parol' => $request->get('parol')
+            ],
+            [
+                'login' => ['required', 'alpha_num', new LowerCase, new LatinLetters, 'unique:users,login', 'min:5', 'max:8'],
+                'parol' => ['required', 'min:5', 'max:8']
+            ],
+            [
+                'login.*,unique,min.max' => '<p>Логин должен состоять только из маленьких латинских букв.</p> <p>К разрешенным символам относятся только цифры!Пример login12345</p>',
+            ]
+        );
+        // dd($data->errors()->messages());
+        if ($data->fails()) {
+            return redirect()->back()->withErrors(['errors' => [$data->errors()->messages()['login'][0] ?? '', $data->errors()->messages()['parol'][0] ?? '']]);
+        }
         try {
             $user = User::create($data);
             Auth::login($user);
@@ -36,9 +55,26 @@ class LoginController extends Controller
             return response()->view('errors.500', ['message' => $e->getMessage()], 500);
         }
     }
-    public function login(UserLoginRequest $request)
+    public function login(Request $request)
     {
-        $data = $request->validated();
+        $data = Validator::make(
+            [
+                'login' => $request->get('login'),
+                'parol' => $request->get('parol')
+            ],
+            [
+                'login' => ['required', 'alpha_num', new LowerCase, new LatinLetters, 'min:5', 'max:8', 'exists:users,login'],
+                'parol' => ['required', 'min:5', 'max:8']
+            ],
+            [
+                'login.*,exists,min.max' => '<p>Логин должен состоять только из маленьких латинских букв.</p> <p>К разрешенным символам относятся только цифры!Пример login12345</p>',
+            ]
+        );
+        // dd($data->errors()->messages());
+        if ($data->fails()) {
+            return redirect()->back()->withErrors(['errors' => [$data->errors()->messages()['login'][0] ?? '', $data->errors()->messages()['parol'][0] ?? '']]);
+        }
+        $data = $request->all();
         try {
             $user = User::where(['login' => $data['login'], 'parol' => $data['parol']])->first();
             if ($user) {

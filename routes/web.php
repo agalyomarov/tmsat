@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\DillerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
@@ -56,4 +57,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
    Route::get('/client', [ClientController::class, 'index'])->name('client');
    Route::get('/client/delete/{client}', [ClientController::class, 'delete'])->name('client.delete');
+
+   Route::get('/news', [AdminNewsController::class, 'index'])->name('news');
+   Route::post('/news', [AdminNewsController::class, 'store'])->name('news.store');
+   Route::put('/', [AdminNewsController::class, 'update'])->name('news.update');
+   Route::get('/news/delete/{post}', [AdminNewsController::class, 'delete'])->name('news.delete');
 });

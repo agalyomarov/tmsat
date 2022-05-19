@@ -52,7 +52,7 @@
                     <input type="text" class="form-control" name="balance" value="{{ old('balance', $diller ? $diller->balance : '') }}">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="{{ $diller ? 'Изменть' : 'Добавить диллер' }}">
+                    <input type="submit" class="btn btn-success" value="{{ $diller ? 'Изменить' : 'Добавить диллер' }}">
                 </div>
             </form>
         </div>
