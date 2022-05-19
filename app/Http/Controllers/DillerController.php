@@ -91,7 +91,7 @@ class DillerController extends Controller
                 'date' => Carbon::now(),
                 'action' => '+',
                 'summa' => $generalOstatatok,
-                'operation' => 'Удален клиент ' . $client->login . '.Возврат средств ' . $generalOstatatok . ' $'
+                'operation' => 'Удален клиент ' . $client->login .
             ]);
             $client->delete();
 
@@ -210,7 +210,7 @@ class DillerController extends Controller
                 'date' => Carbon::now(),
                 'action' => '-',
                 'summa' => $generalPricePaket,
-                'operation' => 'Куплен пакет для  ' . $request->json('clients') . ' клиента'
+                'operation' => 'Куплен пакет для  ' . count($request->json('clients')) . ' клиента.'
             ]);
             DB::commit();
             return response()->json([['status' => true]]);
