@@ -298,6 +298,16 @@
     <!----- УДАЛИТЬ СЛАЙДЕР ----->
     <script src="<?php echo e(asset('/slick/slick.js')); ?>" type="text/javascript" charset="utf-8"></script>
     <!----- УДАЛИТЬ СЛАЙДЕР ----->
+    <script>
+        $(".sliderHome").slick({
+            infinite: true,
+            autoplay: true,
+            dots: true,
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
+    </script>
 </body>
 
 </html>

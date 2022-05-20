@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="<?php echo e(asset('css/framework.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('style.css?3')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('style.css')); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
-    <script src="<?php echo e(asset('js/js.js?4')); ?>"></script>
+    <script src="<?php echo e(asset('js/js.js')); ?>"></script>
     <title></title>
 </head>
 

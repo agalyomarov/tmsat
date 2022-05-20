@@ -101,12 +101,4 @@ $(document).ready(function() {
     });
 
     /* --------  SLIDER ---------- */
-    $(".sliderHome").slick({
-        infinite: true,
-        autoplay: true,
-        dots: true,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    });
 });
