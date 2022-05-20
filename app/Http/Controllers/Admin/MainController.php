@@ -50,7 +50,8 @@ class MainController extends Controller
             $diller->delete();
             return redirect()->route('admin.diller');
         } catch (\Exception $e) {
-            return response()->view('errors.500', ['message' => $e->getMessage()]);
+            // return response()->view('errors.500', ['message' => $e->getMessage()]);
+            return redirect('/');
         }
     }
 }

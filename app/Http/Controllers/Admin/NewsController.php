@@ -58,7 +58,8 @@ class NewsController extends Controller
             return redirect()->route('admin.news');
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->view('errors.500', ['message' => $e->getMessage()]);
+            // return response()->view('errors.500', ['message' => $e->getMessage()]);
+            return redirect('/');
         }
     }
 }

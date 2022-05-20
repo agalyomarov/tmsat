@@ -48,7 +48,8 @@ class PayBalanceController extends Controller
             return redirect()->route('pay_balance');
         } catch (\Exception $e) {
             DB::rollback();
-            return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            // return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            return redirect('/');
         }
     }
 }

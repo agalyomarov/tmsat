@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/framework.css') }}">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('slick/slick.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('slick/slick-theme.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/framework.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('style.css')); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/js.js') }}"></script>
+    <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/js.js')); ?>"></script>
     <style>
         .servers {
             padding: 20px 5px 0 5px;
@@ -28,11 +28,11 @@
 </head>
 
 <body>
-    @include('includes.header')
+    <?php echo $__env->make('includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <section class="home" style="height: 200px !important;overflow: hidden !important;">
         <div class="black_fix"></div>
         <div class="container clearfix">
-            @include('includes.form_profile_mob')
+            <?php echo $__env->make('includes.form_profile_mob', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <div class="sliderHome">
                 <div class="item">
                     <p class="title">Пакет VIP All более 1000 каналов SD+HD 0.20$/мес.</p>
@@ -194,74 +194,74 @@
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[1]) ? $data[1] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[1]) ? $data[1] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[1]) ? $data[1] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[1]) ? $data[1] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[2]) ? $data[2] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[2]) ? $data[2] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[2]) ? $data[2] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[2]) ? $data[2] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[3]) ? $data[3] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[3]) ? $data[3] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[3]) ? $data[3] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[3]) ? $data[3] : 0); ?>%"></div>
                 </div>
             </div>
 
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[4]) ? $data[4] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[4]) ? $data[4] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[4]) ? $data[4] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[4]) ? $data[4] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[5]) ? $data[5] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[5]) ? $data[5] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[5]) ? $data[5] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[5]) ? $data[5] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[6]) ? $data[6] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[6]) ? $data[6] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[6]) ? $data[6] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[6]) ? $data[6] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[7]) ? $data[7] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[7]) ? $data[7] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[7]) ? $data[7] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[7]) ? $data[7] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[8]) ? $data[8] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[8]) ? $data[8] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[8]) ? $data[8] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[8]) ? $data[8] : 0); ?>%"></div>
                 </div>
             </div>
 
             <div class="item_workload">
                 <p class="name_work">Таджикистан s2.tmsat.live</p>
-                <p class="sum_work">{{ isset($data[9]) ? $data[9] : 0 }}%</p>
+                <p class="sum_work"><?php echo e(isset($data[9]) ? $data[9] : 0); ?>%</p>
                 <div class="line_all">
-                    <div class="line_workload second" style="width:{{ isset($data[9]) ? $data[9] : 0 }}%"></div>
+                    <div class="line_workload second" style="width:<?php echo e(isset($data[9]) ? $data[9] : 0); ?>%"></div>
                 </div>
             </div>
 
@@ -296,8 +296,9 @@
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <!----- УДАЛИТЬ СЛАЙДЕР ----->
-    <script src="{{ asset('/slick/slick.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo e(asset('/slick/slick.js')); ?>" type="text/javascript" charset="utf-8"></script>
     <!----- УДАЛИТЬ СЛАЙДЕР ----->
 </body>
 
 </html>
+<?php /**PATH /Users/agaly/Desktop/tmsat/resources/views/index.blade.php ENDPATH**/ ?>

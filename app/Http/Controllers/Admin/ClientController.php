@@ -32,7 +32,7 @@ class ClientController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
             // return response()->json(['status' => false, 'message' => $e->getMessage()]);
-            return view('error.500', ['message' => 'Произлошла серверная ошибка']);
+            return redirect('/');
         }
     }
 }

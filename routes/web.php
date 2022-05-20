@@ -13,8 +13,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegulationController;
 use App\Http\Controllers\SelectServerController;
 use App\Http\Controllers\ToolsController;
+use App\Models\Client;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 
@@ -49,7 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
    });
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => config('app.url_for_amdin'), 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
 
    Route::get('/', [AdminMainController::class, 'index'])->name('diller');
    Route::post('/', [AdminMainController::class, 'store'])->name('diller.store');
@@ -63,4 +66,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
    Route::post('/news', [AdminNewsController::class, 'store'])->name('news.store');
    Route::put('/news', [AdminNewsController::class, 'update'])->name('news.update');
    Route::get('/news/delete/{post}', [AdminNewsController::class, 'delete'])->name('news.delete');
+});
+
+Route::get('/{page404}/{page404_2?}/{page404_3?}/{page404_4?}/{page404_5?}', function () {
+   return redirect('/');
 });

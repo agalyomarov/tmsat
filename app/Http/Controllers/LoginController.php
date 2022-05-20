@@ -40,7 +40,8 @@ class LoginController extends Controller
             Auth::login($user);
             return redirect()->route('news');
         } catch (\Exception $e) {
-            return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            // return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            return redirect('/');
         }
     }
     public function update(UserUpdateRequest $request)
@@ -50,7 +51,8 @@ class LoginController extends Controller
             User::where('id', $request->user()->id)->update(['parol' => $data['parol']]);
             return view('profile', ['message' => 'Парол успешно измненен']);
         } catch (\Exception $e) {
-            return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            // return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            return redirect('/');
         }
     }
     public function login(Request $request)
@@ -78,7 +80,8 @@ class LoginController extends Controller
             }
             return redirect()->back()->withErrors(['message' => 'Неверный пароль']);
         } catch (\Exception $e) {
-            return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            // return response()->view('errors.500', ['message' => $e->getMessage()], 500);
+            return redirect('/');
         }
     }
     public function logout(Request $request)

@@ -16,6 +16,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()->login == config('app.diller_for_amdin')) {
+            return $next($request);
+        }
+        return redirect()->route('main');
     }
 }

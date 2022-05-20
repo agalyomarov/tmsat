@@ -1,0 +1,21 @@
+
+[account]
+login = test4
+password = test4
+filter = ac,vipall
+rule = next
+debug = 0
+
+[account]
+login = test5
+password = test5
+filter = ac,vipall
+rule = next
+debug = 0
+
+[account]
+login = test6
+password = test6
+filter = ac,vipall
+rule = next
+debug = 0

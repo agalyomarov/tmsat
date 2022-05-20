@@ -15,6 +15,10 @@ return [
     |
     */
 
+    'url_for_amdin' => env('URL_FOR_ADMIN', 'admin'),
+
+    'diller_for_amdin' => env('DILLER_FOR_ADMIN', 'admin'),
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
