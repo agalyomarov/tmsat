@@ -97,16 +97,16 @@ $(document).ready(function() {
     // });
     $(".all_user .item").blur(function() {
         // $(".all_user .item").removeClass("active");
-        console.log("test");
+        // console.log("test");
     });
 
     /* --------  SLIDER ---------- */
-    // $(".sliderHome").slick({
-    //     infinite: true,
-    //     autoplay: true,
-    //     dots: true,
-    //     arrows: false,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    // });
+    $(".sliderHome").slick({
+        infinite: true,
+        autoplay: true,
+        dots: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    });
 });
