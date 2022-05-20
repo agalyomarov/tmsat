@@ -11,7 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="{{ asset('js/jquery.js') }}"></script>
-    {{-- <script src="{{ asset('js/js.js') }}"></script> --}}
+    <script src="{{ asset('js/js.js') }}"></script>
+    <style>
+        .home {
+            max-width: 100vw;
+            min-height: 100vh;
+        }
+
+    </style>
     <title></title>
 </head>
 

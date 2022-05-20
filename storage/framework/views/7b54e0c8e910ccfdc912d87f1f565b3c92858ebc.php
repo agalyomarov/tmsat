@@ -12,6 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
     <script src="<?php echo e(asset('js/js.js')); ?>"></script>
+    <style>
+        .home {
+            max-width: 100vw;
+            min-height: 100vh;
+        }
+
+    </style>
     <title></title>
 </head>
 
