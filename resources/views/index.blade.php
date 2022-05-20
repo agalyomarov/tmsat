@@ -15,6 +15,12 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/js.js') }}"></script>
     <style>
+        .home {
+            min-height: 0;
+            max-height: 630px !important;
+            overflow: hidden !important;
+        }
+
         .servers {
             padding: 20px 5px 0 5px;
             width: 100%;
@@ -29,7 +35,7 @@
 
 <body>
     @include('includes.header')
-    <section class="home" style="height: 200px !important;overflow: hidden !important;">
+    <section class="home">
         <div class="black_fix"></div>
         <div class="container clearfix">
             @include('includes.form_profile_mob')
@@ -37,12 +43,12 @@
                 <div class="item">
                     <p class="title">Пакет VIP All более 1000 каналов SD+HD 0.20$/мес.</p>
                     <p class="text">Каналы провайдеров СНГ и Европы</p>
-                    <a href="#" class="btn">Перейти в профиль</a>
+                    <a href="{{ route('profile') }}" class="btn">Перейти в профиль</a>
                 </div>
                 <div class="item">
                     <p class="title">Мы работаем, чтобы Вы отдыхали!</p>
                     <p class="text">Более 10 лет на рынке•сервера с защитой от DDOS атак</p>
-                    <a href="#" class="btn">Перейти в профиль</a>
+                    <a href="{{ route('profile') }}" class="btn">Перейти в профиль</a>
                 </div>
                 <div class="item">
                     <p class="title">Кардшаринг — </p>

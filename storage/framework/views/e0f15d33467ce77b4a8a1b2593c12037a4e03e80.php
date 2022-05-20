@@ -15,6 +15,12 @@
     <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
     <script src="<?php echo e(asset('js/js.js')); ?>"></script>
     <style>
+        .home {
+            min-height: 0;
+            max-height: 630px !important;
+            overflow: hidden !important;
+        }
+
         .servers {
             padding: 20px 5px 0 5px;
             width: 100%;
@@ -29,7 +35,7 @@
 
 <body>
     <?php echo $__env->make('includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <section class="home" style="height: 200px !important;overflow: hidden !important;">
+    <section class="home">
         <div class="black_fix"></div>
         <div class="container clearfix">
             <?php echo $__env->make('includes.form_profile_mob', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
