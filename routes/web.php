@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
       Route::get('/diller', 'index')->name('diller.index');
       Route::post('/diller/create_client', 'createClient')->name('diller.create_client');
       Route::put('/diller/update_client', 'updateClient')->name('diller.updateClient');
-      Route::delete('/diller/delete_client', 'deleteClient')->name('diller.updateClient');
+      Route::delete('/diller/delete_client', 'deleteClient')->name('diller.deleteClient');
       Route::get('/diller/client/{client}', 'buyPaket')->name('diller.buyPaket');
       Route::post('/diller/client', 'buyPaketStore')->name('diller.buyPaketStore');
       Route::post('/diller/stop_client', 'stopClient')->name('diller.stopClient');
