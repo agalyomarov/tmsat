@@ -43,12 +43,12 @@
                 <div class="item">
                     <p class="title">Пакет VIP All более 1000 каналов SD+HD 0.20$/мес.</p>
                     <p class="text">Каналы провайдеров СНГ и Европы</p>
-                    <a href="#" class="btn">Перейти в профиль</a>
+                    <a href="<?php echo e(route('profile')); ?>" class="btn">Перейти в профиль</a>
                 </div>
                 <div class="item">
                     <p class="title">Мы работаем, чтобы Вы отдыхали!</p>
                     <p class="text">Более 10 лет на рынке•сервера с защитой от DDOS атак</p>
-                    <a href="#" class="btn">Перейти в профиль</a>
+                    <a href="<?php echo e(route('profile')); ?>" class="btn">Перейти в профиль</a>
                 </div>
                 <div class="item">
                     <p class="title">Кардшаринг — </p>
