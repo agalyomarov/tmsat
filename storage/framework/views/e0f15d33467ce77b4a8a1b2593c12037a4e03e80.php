@@ -53,7 +53,7 @@
                 <div class="item">
                     <p class="title">Кардшаринг — </p>
                     <p class="text">это возможность смотреть множество спутниковых каналов по доступной цене!</p>
-                    <a href="#" class="btn">Перейти в профиль</a>
+                    <a href="<?php echo e(route('profile')); ?>" class="btn">Перейти в профиль</a>
                 </div>
             </div>
         </div>

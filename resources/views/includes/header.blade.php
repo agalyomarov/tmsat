@@ -29,14 +29,14 @@
                             <li>
                                 <a href="{{ route('diller.index') }}" class="link @if (Route::is('diller.index')) active @endif">Диллерам</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ asset('paket') }}" class="link @if (Route::is('paket')) active @endif">Наши пакеты</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ asset('select_server') }}" class="link @if (Route::is('select_server')) active @endif">Выбрать сервер</a>
                             </li>
                             <li>
-                                <a href="{{ asset('tools') }}" class="link @if (Route::is('tools')) active @endif">Настройки</a>
+                                <a href="{{ asset('tools') }}" class="link @if (Route::is('tools')) active @endif">Настройки пакетов</a>
                             </li>
                             <li>
                                 <a href="{{ asset('regulation') }}" class="link @if (Route::is('regulation')) active @endif">Правила пользования</a>

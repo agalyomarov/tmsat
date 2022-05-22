@@ -29,14 +29,12 @@
                             <li>
                                 <a href="<?php echo e(route('diller.index')); ?>" class="link <?php if(Route::is('diller.index')): ?> active <?php endif; ?>">Диллерам</a>
                             </li>
-                            <li>
-                                <a href="<?php echo e(asset('paket')); ?>" class="link <?php if(Route::is('paket')): ?> active <?php endif; ?>">Наши пакеты</a>
-                            </li>
+                            
                             <li>
                                 <a href="<?php echo e(asset('select_server')); ?>" class="link <?php if(Route::is('select_server')): ?> active <?php endif; ?>">Выбрать сервер</a>
                             </li>
                             <li>
-                                <a href="<?php echo e(asset('tools')); ?>" class="link <?php if(Route::is('tools')): ?> active <?php endif; ?>">Настройки</a>
+                                <a href="<?php echo e(asset('tools')); ?>" class="link <?php if(Route::is('tools')): ?> active <?php endif; ?>">Настройки пакетов</a>
                             </li>
                             <li>
                                 <a href="<?php echo e(asset('regulation')); ?>" class="link <?php if(Route::is('regulation')): ?> active <?php endif; ?>">Правила пользования</a>
