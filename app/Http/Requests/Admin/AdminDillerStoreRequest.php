@@ -26,8 +26,8 @@ class AdminDillerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'login' => ['required', 'alpha', 'unique:users,login', 'min:5', 'max:8', new LowerCase, new LatinLetters],
-            'parol' => ['required', 'min:5', 'max:8'],
+            'login' => ['required', 'alpha', 'unique:users,login', 'min:5', 'max:15'],
+            'parol' => ['required', 'min:5', 'max:15'],
             'balance' => ['sometimes', 'numeric']
         ];
     }

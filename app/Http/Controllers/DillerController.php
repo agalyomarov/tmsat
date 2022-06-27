@@ -41,8 +41,8 @@ class DillerController extends Controller
         try {
             DB::beginTransaction();
             $rules = [
-                'login' => ['required', 'alpha_num', 'unique:clients,login', 'min:4', 'max:10', new LowerCase, new LatinLetters],
-                'parol' => ['required', 'min:4', 'max:10'],
+                'login' => ['required', 'alpha_num', 'unique:clients,login', 'min:4', 'max:12'],
+                'parol' => ['required', 'min:4', 'max:12'],
                 'server' => ['required'],
                 'description' => []
             ];
@@ -64,8 +64,8 @@ class DillerController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'login' => ['required', 'alpha_num', 'unique:clients,login,' . $data['client_id'], 'min:4', 'max:10', new LowerCase, new LatinLetters],
-                'parol' => ['required', 'min:4', 'max:10'],
+                'login' => ['required', 'alpha_num', 'unique:clients,login,' . $data['client_id'], 'min:4', 'max:12'],
+                'parol' => ['required', 'min:4', 'max:12'],
                 'server' => ['required'],
                 'description' => []
             ];

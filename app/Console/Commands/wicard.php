@@ -20,7 +20,7 @@ class wicard extends Command
             }
             $servers = Client::all(['server'])->groupBy('server')->toArray();
             foreach ($servers as $index => $server) {
-                $clients = Client::where('server', $index)->where('end_date', '>', Carbon::now())->select(['login', 'parol'])->get();
+                $clients = Client::where('server', $index)->where('end_date', '>', Carbon::now()->subDays(1))->select(['login', 'parol'])->get();
                 if (count($clients) > 0) {
                     Storage::disk('wicard')->put('wicard' . $index . '.user', '');
                     foreach ($clients as $client) {

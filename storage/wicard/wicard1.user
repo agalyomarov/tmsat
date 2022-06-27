@@ -1,7 +1,7 @@
 
 [account]
-login = adminn
-password = 12354
+login = admin
+password = 12345
 filter = ac,vipall
 rule = next
 debug = 0
