@@ -26,7 +26,7 @@ class AdminDillerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'login' => ['required', 'alpha', 'unique:users,login,' . $this->diller_id, 'min:5', 'max:15'],
+            'login' => ['required', 'unique:users,login,' . $this->diller_id, 'min:5', 'max:15'],
             'parol' => ['required', 'min:5', 'max:15'],
             'balance' => ['sometimes', 'numeric'],
             'diller_id' => []
