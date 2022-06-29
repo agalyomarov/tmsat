@@ -22,7 +22,7 @@ class PayBalanceController extends Controller
         $data = $request->all();
         try {
             if ($data['login'] == $request->user()->login) {
-                return redirect()->back()->withErrors(['message' => 'Укажите другой другая login']);
+                return redirect()->back()->withErrors(['message' => 'Укажите другой  login']);
             }
             DB::beginTransaction();
             $user = $request->user();
